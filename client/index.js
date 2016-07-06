@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 
 import App from './components/App'
 import reducer from './reducer'
+import Landing from './containers/LandingContainer'
 
 let store = createStore(
   reducer, compose(
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <IndexRoute component={Landing} />
         </Route>
       </Router>
     </Provider>,
