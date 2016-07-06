@@ -1,0 +1,84 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "This is the final countdown",
+  "main": "server/server.js",
+  "scripts": {
+    "dev-server": "webpack-dev-server",
+    "serve:watch": "webpack-dev-server --hot --inline",
+    "build": "webpack && npm run transpile",
+    "lint": "eslint . --ext .js --ext .jsx --cache",
+    "postinstall": "npm run build",
+    "start": "node server/lib/server",
+    "server": "node-inspector --web-port 8888 & npm run transpile && node-dev --debug server/lib/server",
+    "test": "ava --watch",
+    "init": "knex init",
+    "migrate:make": "knex migrate:make",
+    "migrate:latest": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed:make": "knex seed:make",
+    "seed:run": "knex seed:run",
+    "watch": "webpack --watch",
+    "transpile": "babel server --ignore server/lib,server/static --out-dir server/lib"
+  },
+  "ava": {
+    "failfast": true,
+    "tap": true,
+    "require": [
+      "babel-register",
+      "./test/helpers/setup-browser-env.js"
+    ],
+    "babel": "inherit"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "env": {
+    "start": {
+      "presets": [
+        "react-hmre"
+      ]
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "enzyme": "^2.3.0",
+    "node-dev": "^3.1.3",
+    "node-inspector": "^0.12.8",
+    "react-addons-test-utils": "^15.2.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "body-parser": "^1.15.2",
+    "copy-webpack-plugin": "^3.0.1",
+    "eslint": "^3.0.1",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-loader": "^1.4.0",
+    "eslint-plugin-promise": "^1.3.2",
+    "eslint-plugin-react": "^5.2.2",
+    "eslint-plugin-standard": "^1.3.2",
+    "express": "^4.14.0",
+    "knex": "^0.11.7",
+    "pg": "^6.0.1",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "superagent": "^2.0.0",
+    "webpack": "^1.13.1"
+  }
+}
