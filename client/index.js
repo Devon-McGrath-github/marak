@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Landing} />
-          <Route path='Events' component={EventList} />
-          <Route path='New-Event' component={CreateEvent} />
+          <Route path='events' component={EventList} />
+          <Route path='new-event' component={CreateEvent} />
         </Route>
       </Router>
     </Provider>,
