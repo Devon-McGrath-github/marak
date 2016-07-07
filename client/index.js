@@ -10,6 +10,7 @@ import appReducer from './reducers'
 import Landing from './containers/LandingContainer'
 import EventList from './containers/LandingContainer'   //placeholder replace when exists
 import CreateEvent from './components/Landing' //placeholder replace when exists
+import EventDetails from './containers/EventDetailsContainer'
 
 let store = createStore(
   appReducer, compose(
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <IndexRoute component={Landing} />
           <Route path='events' component={EventList} />
           <Route path='new-event' component={CreateEvent} />
+          <Route path='event-details' component={EventDetails} />
         </Route>
       </Router>
     </Provider>,
