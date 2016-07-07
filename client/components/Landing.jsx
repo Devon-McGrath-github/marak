@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 
 export default (props) => (
   <div>
-      <h1>Landing</h1>
-      <p>{props.testerino}</p>
+    <Link to='/'><h1>Landing</h1></Link>
+    <Link to='events'><button>Event </button></Link>
+    <Link to='new-event'><button>New Event </button></Link>
   </div>
 )
