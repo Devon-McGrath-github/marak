@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 
 import App from './components/App'
 import reducer from './reducer'
+import EventList from './conatiner/EventListContainer'
 import Landing from './containers/LandingContainer'
 
 let store = createStore(
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={Landing} />
+          <Route path="eventlist" component={EventList} />
         </Route>
       </Router>
     </Provider>,
