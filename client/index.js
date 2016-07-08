@@ -1,11 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 
+import appReducer from './reducers'
+
 import App from './components/App'
-import reducer from './reducer'
 import Landing from './containers/LandingContainer'
 import firebase from 'firebase'
 
@@ -29,20 +31,31 @@ db.ref('users/')
     console.log(snapshot.val())
   })
 
+import EventList from './containers/EventListContainer'
+
+import EventDetails from './containers/EventDetailsContainer'
+
+import CreateEvent from './containers/CreateEventContainer'
+
+
 let store = createStore(
-  reducer, compose(
+  appReducer, compose(
     applyMiddleware(),
     window.devToolsExtension ? window.devToolsExtension() : f => f
-
   )
 )
+
+const history = syncHistoryWithStore(browserHistory, store)
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
-      <Router history={hashHistory}>
+      <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Landing} />
+          <Route path='event-list' component={EventList} />
+          <Route path='new-event' component={CreateEvent} />
+          <Route path='event-details' component={EventDetails} />
         </Route>
       </Router>
     </Provider>,

@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "dev-server": "webpack-dev-server",
-    "serve:watch": "webpack-dev-server --hot --inline",
+    "serve": "webpack-dev-server --hot --inline",
     "build": "webpack && npm run transpile",
     "postinstall": "npm run build",
     "start": "node server/lib/server",
@@ -73,6 +73,7 @@
     "react-router": "^2.5.2",
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
+    "redux-form": "^5.3.1",
     "superagent": "^2.0.0",
     "webpack": "^1.13.1"
   }
