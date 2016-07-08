@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 import { toggleRSVP } from './actions/rsvpActions'
-import appReducer from './reducers'
+import appReducer from './reducers/combineReducers'
 
 import Landing from './containers/LandingContainer'
 import EventList from './containers/EventListContainer'
