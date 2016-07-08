@@ -5,11 +5,12 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 
-import App from './components/App'
 import appReducer from './reducers'
+
+import App from './components/App'
 import Landing from './containers/LandingContainer'
 
-import EventList from './containers/LandingContainer'   //placeholder replace when exists
+import EventList from './containers/EventListContainer'
 
 import EventDetails from './containers/EventDetailsContainer'
 
