@@ -4,7 +4,7 @@ import {reducer as formReducer} from 'redux-form'
 
 import defaultReducer from './default'  // placeholder reducer
 
-const appReducer = combineReducers({
+const reducers = {
   routing: routerReducer,
   form: formReducer,
   defaultReducer
