@@ -9,7 +9,7 @@ import App from './components/App'
 import appReducer from './reducers'
 import Landing from './containers/LandingContainer'
 
-import EventList from './containers/EventListContainer'   //placeholder replace when exists
+import EventList from './containers/LandingContainer'   //placeholder replace when exists
 
 import EventDetails from './containers/EventDetailsContainer'
 
