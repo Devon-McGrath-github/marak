@@ -9,7 +9,7 @@ import appReducer from './reducers'
 
 import App from './components/App'
 import Landing from './containers/LandingContainer'
-import EventList from './conatiner/EventListContainer'
+import EventList from './containers/EventListContainer'
 import CreateEvent from './components/Landing' //placeholder replace when exists
 
 let store = createStore(
