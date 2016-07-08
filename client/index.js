@@ -14,11 +14,7 @@ import EventList from './containers/EventListContainer'
 import CreateEvent from './containers/CreateEventContainer'
 import EventDetails from './containers/EventDetailsContainer'
 import App from './components/App'
-import EventList from './containers/EventListContainer'
 
-import EventDetails from './containers/EventDetailsContainer'
-
-import CreateEvent from './containers/CreateEventContainer'
 
 firebase.initializeApp(
   {
