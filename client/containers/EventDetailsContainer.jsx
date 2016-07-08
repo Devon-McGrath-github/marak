@@ -1,19 +1,24 @@
 import { connect } from 'react-redux'
 
 import EventDetails from '../components/EventDetails'
-import * from '../rsvpActions'
+import { toggleRSVP } from '../actions/rsvpActions'
 
 const mapStateToProps = (state, ownProps) => {
-  const activity = state.activities.filter((activity) => {
-    return activity.id === ownProps.params.id[0]
+  console.log(ownProps);
+  console.log(state.activities.activities);
+  const selectedActivity = state.activities.activities.find((activity) => {
+    return activity.id == ownProps.params.id
   })
+  console.log(selectedActivity);
   return {
-    activity: activity
+    activity: selectedActivity
   }
 }
 
-const mapStateToDispatch = (dispatch) => {
-  return 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleRSVP: (attendeeId, activityId, isRSVPing) => dispatch(toggleRSVP(attendeeId, activityId, isRSVPing))
+  }
 }
 
-export default connect(mapStateToProps)(EventDetails)
+export default connect(mapStateToProps, mapDispatchToProps)(EventDetails)

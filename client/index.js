@@ -10,6 +10,7 @@ import appReducer from './reducers'
 import App from './components/App'
 import Landing from './containers/LandingContainer'
 import firebase from 'firebase'
+import { toggleRSVP } from './actions/rsvpActions'
 
 firebase.initializeApp(
   {
@@ -45,6 +46,9 @@ let store = createStore(
   )
 )
 
+store.dispatch(toggleRSVP(1, 1, true))
+console.log(store.getState())
+
 const history = syncHistoryWithStore(browserHistory, store)
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,9 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Landing} />
-          <Route path='event-list' component={EventList} />
+          <Route path='event-list' component={EventList}/>
+          <Route path='event-details/:id' component={EventDetails} />
           <Route path='new-event' component={CreateEvent} />
-          <Route path='event-details' component={EventDetails} />
+
         </Route>
       </Router>
     </Provider>,

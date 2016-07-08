@@ -17,10 +17,10 @@ export default React.createClass({
         <p>Location: {this.props.activity.location}</p>
         <p>Tasks: {this.props.activity.tasks}</p>
         <p>Requirments{this.props.activity.requirments}</p>*/}
-      <p>Number people attending: {this.props.activity.attendees.length}</p>
+      <p>Number people attending: {this.props.activity.attendeeIds.length}</p>
         <Link to='event-details'>
           <button onClick={
-            
+            console.log('hello')
           }>
           RSVP</button>
         </Link>

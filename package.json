@@ -7,7 +7,6 @@
     "dev-server": "webpack-dev-server",
     "serve": "webpack-dev-server --hot --inline",
     "build": "webpack && npm run transpile",
-    "postinstall": "npm run build",
     "start": "node server/lib/server",
     "server": "node-inspector --web-port 8888 & npm run transpile && node-dev --debug server/lib/server",
     "test": "ava --watch",

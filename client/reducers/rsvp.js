@@ -1,4 +1,5 @@
 // import attendeeIdsArray from '../dummy/questions'
+
 import * as actions from '../rsvpActions'
 
 const rsvp = (state = {}, action) => {
