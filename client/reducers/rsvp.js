@@ -7,7 +7,7 @@ const rsvp = (state = {}, action) => {
       let activity = Object.assign({}, state.currentActivity)
       if (!isRSVPing) {
         activity.activityIds.push({
-          id: action.attendeeId    
+          id: action.attendeeId
         })
         return activity
       } else {

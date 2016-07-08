@@ -8,7 +8,3 @@ export function toggleRSVP(activityId, attendeeId, isRSVPing) {
     isRSVPing: isRSVPing
   }
 }
-
-export function functionName() {
-
-}
