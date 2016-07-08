@@ -3,7 +3,6 @@ import CreateEvent from '../components/CreateEvent'
 
 const mapStateToProps = (state) => {
   return {
-    testerino: state.testerino
   }
 }
 

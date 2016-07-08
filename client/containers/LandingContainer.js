@@ -3,7 +3,6 @@ import Landing from '../components/Landing'
 
 const mapStateToProps = (state) => {
   return {
-    testerino: state.testerino
   }
 }
 
