@@ -20,11 +20,17 @@ module.exports = {
   },
   devServer: { contentBase: PATHS.build },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel?cacheDirectory',
-      include: PATHS.app
-    }]
+    loaders: [
+      { test: /\.jsx?$/, loader: 'babel-loader', include: PATHS.client, exclude: /node_modules/ },
+      { test: /\.json$/, loader: 'json-loader' }
+    ]
+  },
+  node: {
+    dgram: 'empty',
+    dns: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
   plugins: [
     // Simply copies the files over
