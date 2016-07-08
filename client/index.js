@@ -1,26 +1,29 @@
 import React from 'react'
+import firebase from 'firebase'
 import { render } from 'react-dom'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { Provider } from 'react-redux'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
+import { toggleRSVP } from './actions/rsvpActions'
 import appReducer from './reducers'
 
-import App from './components/App'
 import Landing from './containers/LandingContainer'
-import firebase from 'firebase'
-import { toggleRSVP } from './actions/rsvpActions'
+import EventList from './containers/EventListContainer'
+import CreateEvent from './containers/CreateEventContainer'
+import EventDetails from './containers/EventDetailsContainer'
+import App from './components/App'
 
 firebase.initializeApp(
   {
     apiKey: "AIzaSyA1xJpVFCwyiCCTfzXIgiri7a6eLd8vnzM",
     authDomain: "test-9eee4.firebaseapp.com",
     databaseURL: "https://test-9eee4.firebaseio.com"
-  }
-)
+  })
 
 const db = firebase.database()
+
 db.ref('users/2')
   .set({
     username: 'Joshua',
@@ -28,26 +31,13 @@ db.ref('users/2')
   })
 
 db.ref('users/')
-  .on('value', (snapshot) => {
-    console.log(snapshot.val())
-  })
-
-import EventList from './containers/EventListContainer'
-
-import EventDetails from './containers/EventDetailsContainer'
-
-import CreateEvent from './containers/CreateEventContainer'
-
+  .on('value', (snapshot) => {})
 
 let store = createStore(
   appReducer, compose(
     applyMiddleware(),
     window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
-)
-
-store.dispatch(toggleRSVP(1, 1, true))
-console.log(store.getState())
+  ))
 
 const history = syncHistoryWithStore(browserHistory, store)
 
@@ -60,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <Route path='event-list' component={EventList}/>
           <Route path='event-details/:id' component={EventDetails} />
           <Route path='new-event' component={CreateEvent} />
-
         </Route>
       </Router>
     </Provider>,

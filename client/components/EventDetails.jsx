@@ -20,7 +20,7 @@ export default React.createClass({
       <p>Number people attending: {this.props.activity.attendeeIds.length}</p>
         <Link to='event-details'>
           <button onClick={
-            console.log('hello')
+            console.log('placeholder action')
           }>
           RSVP</button>
         </Link>
