@@ -11,8 +11,9 @@ export default React.createClass({
         <h1>Event List</h1>
           {this.props.activities.map(function (activity) {
             return (<div key={activity.id}>
-              <p>something{activity.title}</p>
-              <Link to={`events`}>{activity.subtitle}</Link>
+              <p>Title: {activity.title}</p>
+              <p>subtitle: {activity.subtitle}</p>
+              <p>Date: {activity.date}</p>
             </div>)
           })}
         <Link to="event-details"><button>View Details</button></Link>
