@@ -1,4 +1,4 @@
-import data from './default'
+import data from './initialState'
 
 const INITIAL_STATE = data
 
