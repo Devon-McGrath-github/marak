@@ -20,15 +20,14 @@ firebase.initializeApp(
 )
 
 const db = firebase.database()
-db.ref('users/2')
+db.ref('activities/3')
   .set({
-    username: 'Joshua',
-    email: 'email'
+    description: 'Let have fun',
   })
 
-db.ref('users/')
+db.ref('activities/')
   .on('value', (snapshot) => {
-    console.log(snapshot.val())
+    console.log('Firebase data',snapshot.val())
   })
 
 import EventList from './containers/EventListContainer'
