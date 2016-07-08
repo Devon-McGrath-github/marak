@@ -8,8 +8,13 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import appReducer from './reducers'
 import Landing from './containers/LandingContainer'
+
 import EventList from './containers/LandingContainer'   //placeholder replace when exists
+
+import EventDetails from './containers/EventDetailsContainer'
+
 import CreateEvent from './containers/CreateEventContainer'
+
 
 let store = createStore(
   appReducer, compose(
@@ -28,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <IndexRoute component={Landing} />
           <Route path='events' component={EventList} />
           <Route path='new-event' component={CreateEvent} />
+          <Route path='event-details' component={EventDetails} />
         </Route>
       </Router>
     </Provider>,
