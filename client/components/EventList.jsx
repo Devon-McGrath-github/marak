@@ -8,6 +8,7 @@ export default React.createClass({
   render() {
     return (
       <div>
+        <Link to='/'><h1>Home</h1></Link>
         <h1>Event List</h1>
           {this.props.activities.map(function (activity) {
             return (<div key={activity.id}>
