@@ -16,7 +16,6 @@ import EventDetails from './containers/EventDetailsContainer'
 
 import CreateEvent from './containers/CreateEventContainer'
 
->>>>>>> master
 
 let store = createStore(
   appReducer, compose(
