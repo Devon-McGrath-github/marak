@@ -14,9 +14,9 @@ export default React.createClass({
               <p>Title: {activity.title}</p>
               <p>subtitle: {activity.subtitle}</p>
               <p>Date: {activity.date}</p>
+              <Link to={`/event-details/${activity.id}`}><button>View Details</button></Link>
             </div>)
           })}
-        <Link to="event-details"><button>View Details</button></Link>
       </div>
     )
   }
