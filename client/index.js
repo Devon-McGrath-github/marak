@@ -7,6 +7,27 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import reducer from './reducer'
 import Landing from './containers/LandingContainer'
+import firebase from 'firebase'
+
+firebase.initializeApp(
+  {
+    apiKey: "AIzaSyA1xJpVFCwyiCCTfzXIgiri7a6eLd8vnzM",
+    authDomain: "test-9eee4.firebaseapp.com",
+    databaseURL: "https://test-9eee4.firebaseio.com"
+  }
+)
+
+const db = firebase.database()
+db.ref('users/2')
+  .set({
+    username: 'Joshua',
+    email: 'email'
+  })
+
+db.ref('users/')
+  .on('value', (snapshot) => {
+    console.log(snapshot.val())
+  })
 
 let store = createStore(
   reducer, compose(
