@@ -24,6 +24,9 @@ let store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   ))
 
+// initial load of data while landing page is displayed
+store.dispatch(getActivities())
+
 const history = syncHistoryWithStore(hashHistory, store)
 
 store.dispatch(getActivities())
