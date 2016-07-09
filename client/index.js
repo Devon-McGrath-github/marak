@@ -26,9 +26,6 @@ let store = createStore(
 
 store.dispatch(getActivities())
 
-console.log("from FBDB", store.getState())
-
-
 const history = syncHistoryWithStore(browserHistory, store)
 
 document.addEventListener('DOMContentLoaded', () => {
