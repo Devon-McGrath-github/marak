@@ -9,9 +9,10 @@ const mapStateToProps = (state, ownProps) => {
   const selectedActivity = activities.filter((activity) => {
       return activity.id == ownProps.params.id
     })[0]
+
   return {
     activity: selectedActivity,
-    length: R.values(selectedActivity.attendeeIds).length
+    length: selectedActivity ? R.values(selectedActivity.attendeeIds).length : 0
   }
 }
 
