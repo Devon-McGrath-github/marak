@@ -28,8 +28,6 @@ const history = syncHistoryWithStore(hashHistory, store)
 
 store.dispatch(getActivities())
 
-console.log("from FBDB", store.getState())
-
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
