@@ -11,7 +11,7 @@ const rsvp = (state = {}, action) => {
 
       if (currentActivity.attendeeIds.includes(action.attendeeId)) {
         var i = currentActivity.attendeeIds.indexOf(action.attendeeId)
-        if (i != -1) { currentActivity.attendeeIds.splice(5, 1) }
+        if (i != -1) { currentActivity.attendeeIds.splice(i, 1) }
       } else {
         currentActivity.attendeeIds.push(action.attendeeId)
       }
