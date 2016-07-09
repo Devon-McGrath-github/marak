@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { toggleRSVP } from './actions/rsvpActions'
 import appReducer from './reducers/combineReducers'
@@ -29,7 +29,7 @@ store.dispatch(getActivities())
 console.log("from FBDB", store.getState())
 
 
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(hashHistory, store)
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
