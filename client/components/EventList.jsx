@@ -4,12 +4,10 @@ import { Link } from 'react-router'
 
 export default (props) => {
   const activities = R.values(props.activities)
-  console.log("activity", activities);
   return (
     <div>
     <h1>Events List</h1>
       {activities.map(function (activity) {
-          console.log(activity);
           return (
             <div key={activity.id}>
             <p>Title: {activity.title}</p>
