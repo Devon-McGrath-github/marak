@@ -8,6 +8,7 @@ firebase.initializeApp(
   })
 
 const db = firebase.database()
+export const auth = firebase.auth()
 
 export const getActivitiesFromDB = (callback) => {
  db.ref('activities/')

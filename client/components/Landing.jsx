@@ -6,7 +6,7 @@ export default (props) => (
     <Link to='/'><h1>Home</h1></Link>
     <Link to='event-list'><button>Event List</button></Link>
     <Link to='new-event'><button>New Event </button></Link>
-
+    <Link to='sign-up'><button>Sign Up</button></Link>
     <div id='reducer-test-div'>
 
     </div>
