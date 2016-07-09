@@ -9,8 +9,7 @@ export default React.createClass({
   render () {
     let activity = this.props.activity
     let activityId = activity.id
-    let attendeeId = 1008
-    let isRSVPing = true
+    let attendeeId = 10089
     return (
       <div>
         <Link to='event-list'><button>Return</button></Link>
@@ -23,7 +22,7 @@ export default React.createClass({
         <p>Requirments{this.props.activity.requirments}</p>*/}
         <p>Number people attending: {activity.attendeeIds.length} / {activity.numberRequired} </p>
 
-          <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId, isRSVPing)}}>
+          <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId)}}>
           RSVP</button>
 
       </div>

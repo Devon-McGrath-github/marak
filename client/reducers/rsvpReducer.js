@@ -3,25 +3,9 @@ import * as actions from '../actions/rsvpActions'
 
 const INITIAL_STATE = data
 
-// type: RSVP_TOGGLE,
-// attendeeId: attendeeId,
-// activityId: activityId,
-// isRSVPing: isRSVPing
-
 const rsvp = (state = {}, action) => {
   switch(action.type) {
     case actions.RSVP_TOGGLE:
-
-      // for (var i = 0; i < data.activities.length; i++) {
-      //   if (data.activities[i].id === action.activityId) {
-      //     console.log('nested if evaluated true')
-      //     var currentActivity = data.activities[i]
-      //     console.log('currentActivity = ', currentActivity)
-      //   } else {
-      //
-      //   }
-      // }
-
       let currentActivity = data.activities
         .find(act => action.activityId === act.id)
       // var activity = Object.assign({}, currentActivity)
@@ -34,7 +18,7 @@ const rsvp = (state = {}, action) => {
       } else {
         activity.attendeeIds.push(action.attendeeId)
       }
-      return state.activity
+      return activity
     default:
       return state
   }
