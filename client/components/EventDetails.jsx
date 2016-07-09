@@ -10,6 +10,10 @@ export default React.createClass({
     let activity = this.props.activity
     let activityId = activity ? activity.id : 0
     let attendeeId = 10089
+
+    let activityCreator = this.props.activityCreator
+    let currentUserId = 57
+
     if (activity) {
       return (
         <div>
@@ -23,15 +27,13 @@ export default React.createClass({
           <p>Requirments{this.props.activity.requirments}</p>
           <p>Number people attending: {this.props.length} / {activity.numberRequired} </p>
 
-            <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId)}}>
-            RSVP</button>
-
+          <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId)} }>RSVP</button>
+          <button onClick={() => { this.props.deleteActivity(currentUserId, activityCreator, activityId)} }>Delete Event</button>
         </div>
       )
     } else {
       return (
         <div>Loading...</div>
-
       )
     }
 

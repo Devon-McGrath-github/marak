@@ -11,9 +11,8 @@ const recieveActivities = (activities) => {
 
 export const getActivities = () => {
   return (dispatch) => {
-  getActivitiesFromDB((activities) => {
-    dispatch(recieveActivities(activities))
-})
-}
-
+    getActivitiesFromDB((activities) => {
+      dispatch(recieveActivities(activities))
+    })
+  }
 }
