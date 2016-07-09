@@ -7,7 +7,7 @@ import activities from './getAllActivitesReducer'
 const reducers = {
   routing: routerReducer,
   form: formReducer,
-  activities
+  activities: activities
 }
 
 const appReducer = combineReducers(reducers)
