@@ -1,5 +1,5 @@
 import data from './initialState'
-import * as actions from '../rsvpActions'
+import * as actions from '../actions/rsvpActions'
 
 const INITIAL_STATE = data
 
@@ -8,29 +8,38 @@ const INITIAL_STATE = data
 // activityId: activityId,
 // isRSVPing: isRSVPing
 
-// activity.attendeeIds.inlcudes(attendeeId)
-
 const rsvp = (state = {}, action) => {
   switch(action.type) {
-    case actions.RSVP_TOGGLE
+    case actions.RSVP_TOGGLE:
+
+      // for (var i = 0; i < data.activities.length; i++) {
+      //   if (data.activities[i].id === action.activityId) {
+      //     console.log('nested if evaluated true')
+      //     var currentActivity = data.activities[i]
+      //     console.log('currentActivity = ', currentActivity)
+      //   } else {
+      //
+      //   }
+      // }
+
       let currentActivity = data.activities
-        .find(act => act.id === activityId)
-      let activity = Object.assign({}, state.currentActivity)
-
-
-      if (!isRSVPing) {
-        activity.activityIds.push({
-          id: action.attendeeId
-        })
-        return activity
+        .find(act => action.activityId === act.id)
+      // var activity = Object.assign({}, currentActivity)
+      let activity = currentActivity
+      console.log('attendeeIds = ', activity.attendeeIds)
+      if (activity.attendeeIds.includes(action.attendeeId)) {
+        // var i = activity.attendeeIds.indexOf(attendeeId)
+        // if (i != -1) {}
+        activity.attendeeIds.splice(5, 1)
       } else {
-        activity.activityIds.
+        activity.attendeeIds.push(attendeeId)
       }
-    }
+
+      return state.activity
+
+    default:
+      return state
+  }
 }
 
-let activeActivityId = state.activities.activeActivityId
-activeActivityId = selectedActivity.id
-
-
-activity.attendeeIds
+export default rsvp
