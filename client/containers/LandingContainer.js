@@ -1,9 +1,20 @@
 import { connect } from 'react-redux'
 import Landing from '../components/Landing'
+import { getActivities } from '../actions/getAllActivitiesAction'
+
 
 const mapStateToProps = (state) => {
   return {
   }
 }
 
-export default connect(mapStateToProps)(Landing)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getActivities: () => {
+      dispatch(getActivities())
+    }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)

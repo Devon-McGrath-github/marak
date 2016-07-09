@@ -22,5 +22,3 @@ export default (props) => {
   </div>
 )
 }
-
-// <h4>{activity.activity1.description}</h4>
