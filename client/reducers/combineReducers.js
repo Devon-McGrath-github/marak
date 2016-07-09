@@ -9,7 +9,7 @@ const reducers = {
   routing: routerReducer,
   form: formReducer,
   activities: data,
-  rsvp
+  rsvp: rsvp
 }
 
 const appReducer = combineReducers(reducers)

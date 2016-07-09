@@ -32,11 +32,9 @@ const rsvp = (state = {}, action) => {
         // if (i != -1) {}
         activity.attendeeIds.splice(5, 1)
       } else {
-        activity.attendeeIds.push(attendeeId)
+        activity.attendeeIds.push(action.attendeeId)
       }
-
       return state.activity
-
     default:
       return state
   }

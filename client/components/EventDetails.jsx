@@ -9,7 +9,7 @@ export default React.createClass({
   render () {
     let activity = this.props.activity
     let activityId = activity.id
-    let attendeeId = 10089
+    let attendeeId = 1008
     let isRSVPing = true
     return (
       <div>
