@@ -1,18 +1,24 @@
-// import attendeeIdsArray from '../dummy/questions'
+import data from './initialState'
+import * as actions from '../actions/rsvpActions'
 
-import * as actions from '../rsvpActions'
+const INITIAL_STATE = data
 
 const rsvp = (state = {}, action) => {
   switch(action.type) {
-    case action.RSVP_TOGGLE
-      let activity = Object.assign({}, state.currentActivity)
-      if (!isRSVPing) {
-        activity.activityIds.push({
-          id: action.attendeeId
-        })
-        return activity
+    case actions.RSVP_TOGGLE:
+      let currentActivity = data.activities
+        .find(act => action.activityId === act.id)
+
+      if (currentActivity.attendeeIds.includes(action.attendeeId)) {
+        var i = currentActivity.attendeeIds.indexOf(action.attendeeId)
+        if (i != -1) { currentActivity.attendeeIds.splice(5, 1) }
       } else {
-        activity.activityIds.
+        currentActivity.attendeeIds.push(action.attendeeId)
       }
-    }
+      return currentActivity
+    default:
+      return state
+  }
 }
+
+export default rsvp

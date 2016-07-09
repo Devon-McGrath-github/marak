@@ -1,3 +1,32 @@
+//
+//
+// firebase.initializeApp(
+//   {
+//     apiKey: "AIzaSyA1xJpVFCwyiCCTfzXIgiri7a6eLd8vnzM",
+//     authDomain: "test-9eee4.firebaseapp.com",
+//     databaseURL: "https://test-9eee4.firebaseio.com"
+//   })
+//
+// const db = firebase.database()
+//
+//
+// // db.ref('users/2')
+//   // .set({
+//   //   description: 'Let have fun',
+//   // })
+//
+//
+// const INITIAL_STATE = db.ref('activities/')
+//   .on('value', (snapshot) => {
+//     return snapshot.val()
+//   })
+//
+// console.log(INITIAL_STATE);
+//
+
+
+
+
 const INITIAL_STATE = {
   "currentUser": null,
   "activities":[
@@ -20,7 +49,8 @@ const INITIAL_STATE = {
         3,
         5,
         6,
-        12
+        12,
+        10089
       ]
     },
     {
@@ -50,4 +80,4 @@ const INITIAL_STATE = {
   ],
   "activeActivityId": null
 }
-export default INITIAL_STATE
+// export default INITIAL_STATE
