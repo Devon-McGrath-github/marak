@@ -20,7 +20,7 @@ export default React.createClass({
         <p>Location: {this.props.activity.location}</p>
         <p>Tasks: {this.props.activity.tasks}</p>
         <p>Requirments{this.props.activity.requirments}</p>*/}
-        <p>Number people attending: {activity.attendeeIds.length} / {activity.numberRequired} </p>
+        <p>Number people attending: {this.props.length} / {activity.numberRequired} </p>
 
           <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId)}}>
           RSVP</button>

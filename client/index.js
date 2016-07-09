@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { toggleRSVP } from './actions/rsvpActions'
 import appReducer from './reducers/combineReducers'
@@ -24,9 +24,9 @@ let store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   ))
 
-store.dispatch(getActivities())
+const history = syncHistoryWithStore(hashHistory, store)
 
-const history = syncHistoryWithStore(browserHistory, store)
+store.dispatch(getActivities())
 
 document.addEventListener('DOMContentLoaded', () => {
   render(

@@ -2,14 +2,12 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import { reducer as formReducer } from 'redux-form'
 
-import data from './getAllActivitesReducer'
-import rsvp from './rsvpReducer'
+import activities from './getAllActivitesReducer'
 
 const reducers = {
   routing: routerReducer,
   form: formReducer,
-  activities: data,
-  rsvp: rsvp
+  activities: activities
 }
 
 const appReducer = combineReducers(reducers)

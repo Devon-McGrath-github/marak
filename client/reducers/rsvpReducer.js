@@ -1,21 +1,12 @@
 import * as actions from '../actions/rsvpActions'
 
-const rsvp = (state = {}, action) => {
-  switch(action.type) {
-    case actions.RSVP_TOGGLE:
-      let currentActivity = data.activities
-        .find(act => action.activityId === act.id)
-
-      if (currentActivity.attendeeIds.includes(action.attendeeId)) {
-        var i = currentActivity.attendeeIds.indexOf(action.attendeeId)
-        if (i != -1) { currentActivity.attendeeIds.splice(5, 1) }
+const rsvp = (state = [], action) => {
+      let attendeeId = action.attendeeId
+      if (state.includes(attendeeId)) {
+        return state.filter(id => attendeeId !== id)
       } else {
-        currentActivity.attendeeIds.push(action.attendeeId)
+        return state.concat([attendeeId])
       }
-      return currentActivity
-    default:
-      return state
-  }
 }
 
 export default rsvp

@@ -6,15 +6,12 @@ import { toggleRSVP } from '../actions/rsvpActions'
 
 const mapStateToProps = (state, ownProps) => {
   const activities = R.values(state.activities)
-  const selectedActivity = activities.find((activity) => {
-    return activity.id == ownProps.params.id
-  })
-  let activeActivityId = state.activities.activeActivityId
-  activeActivityId = selectedActivity.id
-
+  const selectedActivity = activities.filter((activity) => {
+      return activity.id == ownProps.params.id
+    })[0]
   return {
     activity: selectedActivity,
-    activeActivityId: activeActivityId
+    length: R.values(selectedActivity.attendeeIds).length
   }
 }
 
