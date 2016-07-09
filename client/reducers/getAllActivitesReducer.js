@@ -4,9 +4,8 @@ import * as actions from '../actions/rsvpActions'
 import {RECIEVE_ACTIVITIES} from '../actions/getAllActivitiesAction'
 import R from 'ramda'
 
-const INITIAL_STATE = data.activities
 
-const reducer = (state = INITIAL_STATE , action) => {
+const reducer = (state = {} , action) => {
   switch (action.type) {
     case actions.RSVP_TOGGLE:
       state = R.values(state)
