@@ -7,8 +7,12 @@ const mapStateToProps = (state, ownProps) => {
   const selectedActivity = state.activities.activities.find((activity) => {
     return activity.id == ownProps.params.id
   })
+  let activeActivityId = state.activities.activeActivityId
+  activeActivityId = selectedActivity.id
+
   return {
-    activity: selectedActivity
+    activity: selectedActivity,
+    activeActivityId: activeActivityId
   }
 }
 
