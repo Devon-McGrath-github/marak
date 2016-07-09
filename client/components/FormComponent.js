@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {reduxForm} from 'redux-form';
 
 class ContactForm extends Component {
+  console.log(state)
   render() {
     const {fields: {title, email, date, time, location, requirements, tasks, description}, handleSubmit} = this.props;
     {/* handleSubmit is a placeholder once backend is setup it can be implemented*/}
