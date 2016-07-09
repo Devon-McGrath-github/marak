@@ -6,6 +6,7 @@ export default (props) => {
   const activities = R.values(props.activities)
   return (
     <div>
+    <Link to='/'><h1>Home</h1></Link>
     <h1>Events List</h1>
       {activities.map(function (activity) {
           return (
