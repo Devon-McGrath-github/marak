@@ -5,9 +5,7 @@ import EventDetails from '../components/EventDetails'
 import { toggleRSVP } from '../actions/rsvpActions'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   const activities = R.values(state.activities)
-  console.log("edc", activities);
   const selectedActivity = activities.find((activity) => {
     return activity.id == ownProps.params.id
   })
