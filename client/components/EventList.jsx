@@ -28,10 +28,12 @@ import { Link } from 'react-router'
 // })
 
 export default (props) => {
-  console.log('Props from eventlist',props);
+  const activity = props.activities
+  // console.log("activity", activity);
   return (
     <div>
     <h1>Events List</h1>
+    <h4>{activity.description}</h4>
 
   </div>
 )
