@@ -8,17 +8,14 @@ const rsvp = (state = {}, action) => {
     case actions.RSVP_TOGGLE:
       let currentActivity = data.activities
         .find(act => action.activityId === act.id)
-      // var activity = Object.assign({}, currentActivity)
-      let activity = currentActivity
-      console.log('attendeeIds = ', activity.attendeeIds)
-      if (activity.attendeeIds.includes(action.attendeeId)) {
-        // var i = activity.attendeeIds.indexOf(attendeeId)
-        // if (i != -1) {}
-        activity.attendeeIds.splice(5, 1)
+
+      if (currentActivity.attendeeIds.includes(action.attendeeId)) {
+        var i = currentActivity.attendeeIds.indexOf(action.attendeeId)
+        if (i != -1) { currentActivity.attendeeIds.splice(5, 1) }
       } else {
-        activity.attendeeIds.push(action.attendeeId)
+        currentActivity.attendeeIds.push(action.attendeeId)
       }
-      return activity
+      return currentActivity
     default:
       return state
   }
