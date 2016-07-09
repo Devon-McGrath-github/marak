@@ -4,15 +4,12 @@ import EventDetails from '../components/EventDetails'
 import { toggleRSVP } from '../actions/rsvpActions'
 
 const mapStateToProps = (state, ownProps) => {
-  const selectedActivity = state.activities.activities.find((activity) => {
+  const selectedActivity = state.activities.filter((activity) => {
     return activity.id == ownProps.params.id
-  })
-  let activeActivityId = state.activities.activeActivityId
-  activeActivityId = selectedActivity.id
-
+  })[0]
   return {
     activity: selectedActivity,
-    activeActivityId: activeActivityId
+    length: selectedActivity.attendeeIds.length
   }
 }
 
