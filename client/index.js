@@ -8,6 +8,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { toggleRSVP } from './actions/rsvpActions'
+import { deleteActivity } from './actions/deleteActivityAction'
 import appReducer from './reducers/combineReducers'
 
 import Landing from './containers/LandingContainer'
@@ -28,8 +29,6 @@ let store = createStore(
 store.dispatch(getActivities())
 
 const history = syncHistoryWithStore(hashHistory, store)
-
-store.dispatch(getActivities())
 
 document.addEventListener('DOMContentLoaded', () => {
   render(

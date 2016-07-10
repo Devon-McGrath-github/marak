@@ -1,11 +1,12 @@
 import firebase from 'firebase'
+import R from 'ramda'
 
 import {db} from './dbInit'
 
 export const getActivitiesFromDB = (callback) => {
  db.ref('activities/')
   .on('value', (snapshot) => {
-    callback(snapshot.val())
+    callback(R.values(snapshot.val()))
   })
 }
 
