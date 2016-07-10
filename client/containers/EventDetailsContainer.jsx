@@ -8,7 +8,7 @@ import { deleteActivity } from '../actions/deleteActivityAction'
 const mapStateToProps = (state, ownProps) => {
   const activities = R.values(state.activities)
   const selectedActivity = activities.filter((activity) => {
-      return activity.id == ownProps.params.id
+      return activity.activityId == ownProps.params.id
     })[0]
 
   return {
@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleRSVP: (attendeeId, activityId, isRSVPing) => dispatch(toggleRSVP(attendeeId, activityId, isRSVPing)),
+    toggleRSVP: (attendeeId, activityId) => dispatch(toggleRSVP(attendeeId, activityId)),
     deleteActivity: (currentUserId, activityCreatorId, activityId) => dispatch(deleteActivity(currentUserId, activityCreatorId, activityId))
   }
 }

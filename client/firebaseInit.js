@@ -2,9 +2,9 @@ import firebase from 'firebase'
 
 firebase.initializeApp(
   {
-    apiKey: "AIzaSyA1xJpVFCwyiCCTfzXIgiri7a6eLd8vnzM",
-    authDomain: "test-9eee4.firebaseapp.com",
-    databaseURL: "https://test-9eee4.firebaseio.com"
+    apiKey: "AIzaSyCCHgcbgLZFdq6MiL8-JPaGeC7sg_OrXgA",
+    authDomain: "datawhateva.firebaseapp.com",
+    databaseURL: "https://datawhateva.firebaseio.com",
   })
 
 const db = firebase.database()

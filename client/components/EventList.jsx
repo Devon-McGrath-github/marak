@@ -10,11 +10,11 @@ export default (props) => {
     <h1>Events List</h1>
       {activities.map(function (activity) {
           return (
-            <div key={activity.id}>
+            <div key={activity.activityId}>
             <p>Title: {activity.title}</p>
             <p>subtitle: {activity.subtitle}</p>
-            <p>Date: {activity.date}</p>
-            <Link to={`/event-details/${activity.id}`}><button>View Details</button></Link>
+            <p>Date: {activity.activityStart}</p>
+            <Link to={`/event-details/${activity.activityId}`}><button>View Details</button></Link>
             </div>
           )
           })

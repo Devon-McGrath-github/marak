@@ -11,11 +11,14 @@ const reducer = (state = {} , action) => {
     case actions.RSVP_TOGGLE:
       state = R.values(state)
       return state.map((activity) => {
-        if (activity.id === action.activityId) {
+        console.log('activity', activity);
+        if (activity.activityId === action.activityId) {
+          console.log('here');
           let newArray = rsvpReducer(R.values(activity.attendeeIds), action)
           activity.attendeeIds = newArray
         }
         return activity;
+
       })
 
     case RECIEVE_ACTIVITIES:
@@ -26,7 +29,7 @@ const reducer = (state = {} , action) => {
       return state.map((activity) => {
         if (activity.id === deleteActivity.activityId) {
           if (currentUserId === deleteActivity.activityCreatorId) {
-            deleteActivityReducer(deleteActivity, deleteActivity)
+            let tester = deleteActivityReducer(deleteActivity, action)
           }
         }
       })
