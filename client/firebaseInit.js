@@ -16,10 +16,14 @@ export const getActivitiesFromDB = (callback) => {
   })
 }
 
+//writing to db activities
+// firebase.database().ref('activities/').child(user).push({title:'awesome', description:'gagaga'})
+
 // Initialize Firebase oAuth
 firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
+
             var displayName = user.displayName;
             var email = user.email;
             var emailVerified = user.emailVerified;
@@ -50,4 +54,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
       );
       // firebase.auth().signOut()
-      // firebase.auth().signInWithEmailAndPassword('ricky.kynd@gmail.com', 'googlegoo')
+      // firebase.auth().signInWithEmailAndPassword('hello@gmail.com', 'googlegoo')
+    export function signUp(email, password) {
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+    }
