@@ -14,9 +14,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createActivty: () => {
-      dispatch(createActivty())
-    },
     onSubmit: () => {
       dispatch(createActivity())
     }

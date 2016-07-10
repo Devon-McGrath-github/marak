@@ -1,10 +1,10 @@
 import { getActivitiesFromDB } from '../firebaseInit'
 
-export const RECIEVE_ACTIVITIES = 'RECIEVE_ACTIVITIES'
+export const RECEIVE_ACTIVITIES = 'RECEIVE_ACTIVITIES'
 
-const recieveActivities = (activities) => {
+const receiveActivities = (activities) => {
   return {
-    type: RECIEVE_ACTIVITIES,
+    type: RECEIVE_ACTIVITIES,
     activities: activities
   }
 }
@@ -12,7 +12,7 @@ const recieveActivities = (activities) => {
 export const getActivities = () => {
   return (dispatch) => {
     getActivitiesFromDB((activities) => {
-      dispatch(recieveActivities(activities))
+      dispatch(receiveActivities(activities))
     })
   }
 }
