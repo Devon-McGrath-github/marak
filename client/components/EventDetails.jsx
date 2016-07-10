@@ -11,7 +11,7 @@ export default React.createClass({
     let attendeeId = 10089
 
     let activityCreatorId = activity.activityCreatorId
-    let currentUserId = 56
+    let currentUserId = this.props.currentUserId
 
     if (activity) {
       return (

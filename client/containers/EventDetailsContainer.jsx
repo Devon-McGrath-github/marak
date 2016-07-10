@@ -11,9 +11,12 @@ const mapStateToProps = (state, ownProps) => {
       return activity.activityId == ownProps.params.id
     })[0]
 
+  const currentUserId = state.currentUserId
+
   return {
     activity: selectedActivity,
-    length: selectedActivity ? R.values(selectedActivity.attendeeIds).length : 0
+    length: selectedActivity ? R.values(selectedActivity.attendeeIds).length : 0,
+    currentUserId: currentUserId
   }
 }
 

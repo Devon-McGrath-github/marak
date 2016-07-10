@@ -13,6 +13,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getActivities: () => {
       dispatch(getActivities())
+    },
+    getUserInfo: () => {
+      dispatch(getUserInfo())
     }
   }
 }
