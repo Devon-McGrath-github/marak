@@ -26,24 +26,3 @@ export const writeNewActivityToDB = (activityId, description) => {
 
   return firebase.database().ref().update(updates);
 }
-
-// writeNewActivity(2, 'this is a test')
-
-
-
-
-// const createActivityInDB = (activityId, description) => {
-//  db.ref('activities/')
-//   .set({
-//     description: description
-//   })
-// }
-
-// const createActivityInDB = (activityId, description) => {
-//  db.ref('activities/')
-//   .push({
-//     description: description
-//   })
-// }
-
-// createActivityInDB("activity1", "this is a test")
