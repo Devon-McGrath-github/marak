@@ -1,17 +1,29 @@
 import firebase from 'firebase'
 import R from 'ramda'
 
-firebase.initializeApp(
-  {
-    apiKey: "AIzaSyCCHgcbgLZFdq6MiL8-JPaGeC7sg_OrXgA",
-    authDomain: "datawhateva.firebaseapp.com",
-    databaseURL: "https://datawhateva.firebaseio.com",
-  })
+import {db} from './dbInit'
 
-const db = firebase.database()
 export const getActivitiesFromDB = (callback) => {
  db.ref('activities/')
   .on('value', (snapshot) => {
     callback(R.values(snapshot.val()))
   })
+}
+
+export const writeNewActivityToDB = (activityId, description) => {
+  // A post entry.
+
+  const newActivity = {
+    activityId: activityId,
+    description: description
+  }
+
+  // Get a key for a new Post.
+  const newPostKey = firebase.database().ref().child('activities/').push().key
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  const updates = {};
+  updates['activities/' + newPostKey] = newActivity;
+
+  return firebase.database().ref().update(updates);
 }
