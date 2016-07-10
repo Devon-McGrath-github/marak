@@ -72,6 +72,7 @@ var uiConfig = {
           'tosUrl': '<your-tos-url>',
           'callbacks': {
             'signInSuccess': function(currentUser, credential, redirectUrl) {
+              console.log('HEYEHEYHEYHEYHYE', currentUser);
               // Do something.
               // Return type determines whether we continue the redirect automatically
               // or whether we leave that to developer to handle.
