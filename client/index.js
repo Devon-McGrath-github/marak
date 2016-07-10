@@ -30,8 +30,6 @@ store.dispatch(getActivities())
 
 const history = syncHistoryWithStore(hashHistory, store)
 
-store.dispatch(getActivities())
-
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>

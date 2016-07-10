@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import R from 'ramda'
 
 firebase.initializeApp(
   {
@@ -8,10 +9,9 @@ firebase.initializeApp(
   })
 
 const db = firebase.database()
-
 export const getActivitiesFromDB = (callback) => {
  db.ref('activities/')
   .on('value', (snapshot) => {
-    callback(snapshot.val())
+    callback(R.values(snapshot.val()))
   })
 }

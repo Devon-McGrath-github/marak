@@ -1,6 +1,6 @@
 import rsvpReducer from './rsvpReducer'
 import deleteActivityReducer from './deleteActivityReducer'
-import { DELETE_ACTIVITY } from '../actions/deleteActivityAction'
+import { DELETE_ACTIVITY, deleteActivity } from '../actions/deleteActivityAction'
 import * as actions from '../actions/rsvpActions'
 import {RECIEVE_ACTIVITIES} from '../actions/getAllActivitiesAction'
 import R from 'ramda'
@@ -11,9 +11,7 @@ const reducer = (state = {} , action) => {
     case actions.RSVP_TOGGLE:
       state = R.values(state)
       return state.map((activity) => {
-        console.log('activity', activity);
         if (activity.activityId === action.activityId) {
-          console.log('here');
           let newArray = rsvpReducer(R.values(activity.attendeeIds), action)
           activity.attendeeIds = newArray
         }
@@ -26,12 +24,15 @@ const reducer = (state = {} , action) => {
 
     case DELETE_ACTIVITY:
       state = R.values(state)
-      return state.map((activity) => {
-        if (activity.id === deleteActivity.activityId) {
-          if (currentUserId === deleteActivity.activityCreatorId) {
-            let tester = deleteActivityReducer(deleteActivity, action)
+      return state.filter((activity) => {
+        if (activity.activityId === action.activityId) {
+          if (action.currentUserId === action.activityCreatorId) {
+            deleteActivityReducer(activity, action)
+            return false
           }
         }
+        return true
+
       })
     default:
       return state;
