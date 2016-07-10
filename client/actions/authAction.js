@@ -32,7 +32,7 @@ firebase.initializeApp (
   export const openAuth = () => {
   	return (dispatch) => {
   		dispatch({ type: C.AUTH_OPEN });
-  		fireRef.authWithOAuthPopup('facebook', (error) => {
+      firebase.auth().createUserWithEmailAndPassword(email, password) => {
   			if (error) {
   				dispatch({ type: C.FEEDBACK_DISPLAY_ERROR, error: `Login failed! ${error}` });
   				dispatch({ type: C.AUTH_LOGOUT });
