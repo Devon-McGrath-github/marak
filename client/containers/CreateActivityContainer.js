@@ -14,8 +14,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSubmit: () => {
-      dispatch(createActivity())
+    onSubmit: (payload) => {
+      dispatch(createActivity(payload))
     }
   }
 }

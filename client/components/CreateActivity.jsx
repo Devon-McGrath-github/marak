@@ -5,7 +5,7 @@ import { reduxForm } from 'redux-form'
 class CreateActivity extends Component {
 
   render() {
-    const { fields: {title, description}, handleSubmit } = this.props
+    const { fields: {title, description}, handleSubmit, saveNewActivity } = this.props
 
     return (
       <div>
