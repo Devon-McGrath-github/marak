@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             var providerData = user.providerData;
             user.getToken().then(function(accessToken) {
               document.getElementById('sign-in-status').textContent = user.displayName + ' ' + 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('sign-in').innerHTML = '<button>' + 'Sign out' + '</button>';
               document.getElementById('account-details').textContent = JSON.stringify({
                 displayName: displayName,
                 email: email,
@@ -41,16 +41,18 @@ firebase.auth().onAuthStateChanged(function(user) {
               }, null, '  ');
             });
           } else {
-            // User is signed out.
-            document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'null';
+              // User is signed out.
+              user.firebase.auth().signOut().then(function(user)) {
+                document.getElementById('sign-in-status').innerHTML = '<button>' + 'Signed out' + '<button>';
+                document.getElementById('sign-in').textContent = 'Sign in';
+                document.getElementById('account-details').textContent = 'null';
+            }
           }
         }, function(error) {
           console.log(error);
         }
       );
-      // firebase.auth().signOut()
+
       // firebase.auth().signInWithEmailAndPassword('ricky.kynd@gmail.com', 'googlegoo')
 
 // using firebase UI sign in forms
@@ -64,7 +66,6 @@ var uiConfig = {
           'signInOptions': [
             // Leave the lines as is for the providers you want to offer your users.
             firebase.auth.EmailAuthProvider.PROVIDER_ID
-            // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
             // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
             // firebase.auth.GoogleAuthProvider.PROVIDER_ID
           ],
