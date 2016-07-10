@@ -12,7 +12,7 @@ import appReducer from './reducers/combineReducers'
 
 import Landing from './containers/LandingContainer'
 import EventList from './containers/EventListContainer'
-import CreateEvent from './containers/CreateEventContainer'
+import CreateActivity from './containers/CreateActivityContainer'
 import EventDetails from './containers/EventDetailsContainer'
 import App from './components/App'
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <IndexRoute component={Landing} />
           <Route path='event-list' component={EventList}/>
           <Route path='event-details/:id' component={EventDetails} />
-          <Route path='new-event' component={CreateEvent} />
+          <Route path='new-event' component={CreateActivity} />
         </Route>
       </Router>
     </Provider>,
