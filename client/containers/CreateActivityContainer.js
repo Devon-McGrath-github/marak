@@ -8,6 +8,7 @@ import { createActivity } from '../actions/createActivityActions'
 
 const mapStateToProps = (state) => {
   return {
+    fields: ['title', 'description']
   }
 }
 
@@ -15,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createActivty: () => {
       dispatch(createActivty())
+    },
+    onSubmit: () => {
+      dispatch(createActivity())
     }
   }
 }
