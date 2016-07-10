@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 
 class CreateActivity extends Component {
+  
   render() {
     const { fields: {title, description}, handleSubmit } = this.props
 
