@@ -16,7 +16,7 @@ export const getActivitiesFromDB = (callback) => {
   })
 }
 
-export const writeNewActivity = (activityId, description) => {
+export const writeNewActivityToDB = (activityId, description) => {
   // A post entry.
 
   const newActivity = {
