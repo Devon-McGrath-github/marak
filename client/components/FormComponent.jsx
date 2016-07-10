@@ -5,7 +5,8 @@ export const fields = [ 'title', 'description']
 
 const CreateActivity = React.createClass({
   handleSubmit (e) {
-    console.log(e)
+    console.log(e.title)
+    console.log(e.description)
   },
 
   render() {

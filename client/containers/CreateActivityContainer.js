@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import CreateEvent from '../components/CreateEvent'
+import { reduxForm } from 'redux-form'
+
+import CreateActivity from '../components/CreateActivity'
 
 import { createActivity } from '../actions/createActivityActions'
 
 
 const mapStateToProps = (state) => {
-  console.log("create event", state)
   return {
   }
 }
@@ -18,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateEvent)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateActivity)
