@@ -1,13 +1,6 @@
 import firebase from 'firebase'
 
-firebase.initializeApp(
-  {
-    apiKey: "AIzaSyA1xJpVFCwyiCCTfzXIgiri7a6eLd8vnzM",
-    authDomain: "test-9eee4.firebaseapp.com",
-    databaseURL: "https://test-9eee4.firebaseio.com",
-  })
-
-const db = firebase.database()
+import {db} from './dbInit'
 
 export const getActivitiesFromDB = (callback) => {
  db.ref('activities/')
