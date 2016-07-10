@@ -10,6 +10,14 @@ export const getActivitiesFromDB = (callback) => {
   })
 }
 
+export const getUserInfoFromDB = (callback) => {
+ db.ref('currentUserId')
+  .on('value', (snapshot) => {
+    callback(snapshot.val())
+    console.log('getUserInfo', snapshot.val())
+  })
+}
+
 export const writeNewActivityToDB = (activityId, description) => {
   // A post entry.
 
