@@ -16,8 +16,8 @@ const mapDispatchToProps = (dispatch) => {
     logoutUser: () => {
       dispatch(logoutUser())
     },
-    signInWithGoogle: (email, password) => {
-      dispatch(signInWithGoogle(email, password))
+    signInWithGoogle: () => {
+      dispatch(signInWithGoogle())
     },
     signInWithEmail: (email, password) => {
       dispatch(signInWithEmail(email, password))

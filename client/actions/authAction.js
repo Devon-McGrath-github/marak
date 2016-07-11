@@ -31,10 +31,9 @@ export const listenToAuth = () => {
 
 var GoogleProvider = new firebase.auth.GoogleAuthProvider()
 
-export const signInWithGoogle = (email, password) => {
+export const signInWithGoogle = () => {
 	return (dispatch) => {
 		dispatch({ type: C.AUTH_OPEN })
-    console.log(email, password);
     auth.signInWithPopup(GoogleProvider)
       .then((result) => {
         const token = result.credential.accessToken
