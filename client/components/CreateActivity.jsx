@@ -1,16 +1,18 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
 
 class CreateActivity extends Component {
 
   render() {
-    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks}, handleSubmit, saveNewActivity } = this.props
-
+    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid}, handleSubmit} = this.props
+    uid.value=this.props.userId
     return (
       <div>
         <Link to='/'><h1>Home</h1></Link>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={() => {
+            handleSubmit()
+            hashHistory.push('event-list')}}>
           <div>
             <label>Title: </label>
             <input type="text" placeholder="title" {...title}/>
@@ -52,7 +54,7 @@ class CreateActivity extends Component {
 
 CreateActivity = reduxForm({
   form: 'createActivityForm',
-  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks']
+  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid'], initialValues: {uid: '1'}
 })(CreateActivity)
 
 export default CreateActivity
