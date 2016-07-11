@@ -8,7 +8,11 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { toggleRSVP } from './actions/rsvpActions'
+
+import { listenToAuth } from './actions/authAction'
+
 import { deleteActivity } from './actions/deleteActivityAction'
+
 import appReducer from './reducers/combineReducers'
 
 import Landing from './containers/LandingContainer'
@@ -43,5 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
       </Router>
     </Provider>,
     document.getElementById('app')
-  )
+)
+store.dispatch(listenToAuth())
+
+
 })
