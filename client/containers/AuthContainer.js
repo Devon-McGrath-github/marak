@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Auth from '../components/Auth'
-import { openAuth, logoutUser } from '../actions/authAction'
+import { signIn, signUp, logoutUser } from '../actions/authAction'
 
 
 const mapStateToProps = (state) => {
@@ -17,9 +17,11 @@ const mapDispatchToProps = (dispatch) => {
     logoutUser: () => {
       dispatch(logoutUser())
     },
-    openAuth: (username, password) => {
-      debugger
-      dispatch(openAuth(username, password))
+    signIn: (email, password) => {
+      dispatch(signIn(email, password))
+    },
+    signUp: (email, password) => {
+      dispatch(signUp(email, password))
     }
   }
 }

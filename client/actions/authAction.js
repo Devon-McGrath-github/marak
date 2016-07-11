@@ -25,12 +25,27 @@ export const listenToAuth = () => {
 	};
 };
 
-export const openAuth = (email, password) => {
+// if (error.code === 'auth/email-already-in-use') {
+//   auth.signInWithEmailAndPassword(email, password).catch((error) => {
+//     console.log(error.code, error.message)
+//   })
+// }
+
+export const signIn = (email, password) => {
 	return (dispatch) => {
 		dispatch({ type: C.AUTH_OPEN })
     console.log(email, password);
-    debugger
     auth.signInWithEmailAndPassword(email, password).catch((error) => {
+      console.log(error.code, error.message)
+    })
+	};
+};
+
+export const signUp = (email, password) => {
+	return (dispatch) => {
+		dispatch({ type: C.AUTH_OPEN })
+    console.log(email, password);
+    auth.createUserWithEmailAndPassword(email, password).catch((error) => {
       console.log(error.code, error.message)
     })
 	};

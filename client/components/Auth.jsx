@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 // import { openAuth, logoutUser } from '../actions/auth'
 import C from '../constants/authConstants'
 
+import SignIn from './SignIn'
+import SignUp from './SignUp'
+
 
 export default (props) => {
     let email = null
@@ -22,23 +25,8 @@ export default (props) => {
     )
     default: return (
       <div>
-        <div>
-            <h4>Sign In</h4>
-            <form>
-                <input type="email" name="email" placeholder="email" ref={(input) => email = input }></input>
-                <input type="password" name="password" placeholder="password" ref={(input) => password = input }></input>
-            </form>
-            <button onClick={()=> {props.openAuth(email.value, password.value)}}>Please Log in</button>
-
-
-
-
-
-        </div>
-        <div>Sign Up</div>
-
-
-
+          {!props.auth.uid && <SignIn signIn={props.signIn} />}
+          {!props.auth.uid && <SignUp signUp={props.signUp} />}
       </div>
     )
   }
