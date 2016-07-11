@@ -42,8 +42,10 @@ export const signInWithGoogle = () => {
         dispatch({ type: C.AUTH_LOGIN, username: user.displayName, uid: user.uid })
       })
       .catch((error) => {
+        dispatch({ type: C.AUTH_ERROR, errorCode: error.code, errorMessage: error.message })
         console.log(error.code, error.message)
       })
+
 	};
 };
 //

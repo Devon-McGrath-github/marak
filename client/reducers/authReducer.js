@@ -26,6 +26,17 @@ export default (state = initialState, action) => {
 				username: 'guest',
 				uid: null
 			};
+    case C.AUTH_ERROR:
+      return {
+        status: C.AUTH_ERROR,
+        errorCode: action.errorCode,
+        errorMessage: action.errorMessage,
+        username: null,
+        uid: null
+      };
+
+
+
 		default:
 			return state
 	}

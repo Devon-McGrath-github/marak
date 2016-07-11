@@ -25,6 +25,13 @@ export default (props) => {
         <button disabled>authenticating...</button>
       </div>
     )
+    case C.AUTH_ERROR: return (
+        <div>
+          <h4>{props.auth.errorCode}</h4>
+          <h4>{props.auth.errorMessage}</h4>
+        </div>
+
+    )
     default: return (
       <div>
           {!props.auth.uid && <SignInWithGoogle signInWithGoogle={props.signInWithGoogle} />}
