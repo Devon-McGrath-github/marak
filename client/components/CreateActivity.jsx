@@ -50,7 +50,7 @@ class CreateActivity extends Component {
   }
 }
 
-CreateActivity= reduxForm({
+CreateActivity = reduxForm({
   form: 'createActivityForm',
   fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks']
 })(CreateActivity)
