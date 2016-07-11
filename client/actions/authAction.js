@@ -23,12 +23,6 @@ export const listenToAuth = () => {
 	};
 };
 
-// if (error.code === 'auth/email-already-in-use') {
-//   auth.signInWithEmailAndPassword(email, password).catch((error) => {
-//     console.log(error.code, error.message)
-//   })
-// }
-
 var GoogleProvider = new firebase.auth.GoogleAuthProvider()
 
 export const signInWithGoogle = () => {
@@ -48,13 +42,6 @@ export const signInWithGoogle = () => {
 
 	};
 };
-//
-// C.AUTH_LOGIN:
-//   return {
-//     status: C.AUTH_LOGGED_IN,
-//     username: action.username,
-//     uid: action.uid
-//   }
 
 export const signInWithEmail = (email, password) => {
 	return (dispatch) => {
@@ -76,12 +63,6 @@ export const signUp = (email, password) => {
 	};
 };
 
-// (email, password) => {
-// if (error) {
-//   dispatch({ type: C.FEEDBACK_DISPLAY_ERROR, error: `Login failed! ${error}` });
-//   dispatch({ type: C.AUTH_LOGOUT });
-// }
-// }
 export const logoutUser = () => {
 	return (dispatch) => {
 		dispatch({ type: C.AUTH_LOGOUT });
