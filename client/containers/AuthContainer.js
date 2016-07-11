@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Auth from '../components/Auth'
-import { signIn, signUp, logoutUser } from '../actions/authAction'
+import { signInWithGoogle, signInWithEmail, signUp, logoutUser } from '../actions/authAction'
 
 
 const mapStateToProps = (state) => {
@@ -11,14 +11,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-
 const mapDispatchToProps = (dispatch) => {
   return {
     logoutUser: () => {
       dispatch(logoutUser())
     },
-    signIn: (email, password) => {
-      dispatch(signIn(email, password))
+    signInWithGoogle: (email, password) => {
+      dispatch(signInWithGoogle(email, password))
+    },
+    signInWithEmail: (email, password) => {
+      dispatch(signInWithEmail(email, password))
     },
     signUp: (email, password) => {
       dispatch(signUp(email, password))

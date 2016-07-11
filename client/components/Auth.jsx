@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 // import { openAuth, logoutUser } from '../actions/auth'
 import C from '../constants/authConstants'
 
-import SignIn from './SignIn'
+import SignInWithGoogle from './SignInWithGoogle'
+import SignInWithEmail from './SignInWithEmail'
+
 import SignUp from './SignUp'
 
 
@@ -25,7 +27,8 @@ export default (props) => {
     )
     default: return (
       <div>
-          {!props.auth.uid && <SignIn signIn={props.signIn} />}
+          {!props.auth.uid && <SignInWithGoogle signInWithGoogle={props.signInWithGoogle} />}
+          {!props.auth.uid && <SignInWithEmail signInWithEmail={props.signInWithEmail} />}
           {!props.auth.uid && <SignUp signUp={props.signUp} />}
       </div>
     )
