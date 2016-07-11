@@ -8,6 +8,7 @@ export default (props) => {
     case C.AUTH_LOGGED_IN: return (
       <div>
         <span>Logged in as {props.auth.username}.</span>
+        <button onClick={props.logoutUser}>Log out</button>
       </div>
     )
     case C.AUTH_AWAITING_RESPONSE: return (

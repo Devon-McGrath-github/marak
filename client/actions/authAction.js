@@ -36,6 +36,7 @@ export const openAuth = () => {
 };
 
 export const logoutUser = () => {
+  debugger
 	return (dispatch) => {
 		dispatch({ type: C.AUTH_LOGOUT });
 		fireRef.unauth();
