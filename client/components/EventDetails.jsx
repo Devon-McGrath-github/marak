@@ -34,7 +34,7 @@ export default React.createClass({
               if (attendeeId === currentUserId) {
                 array.push(attendeeId)}
               })}
-              { array.length == 1 ? 'RSVP' : 'Cancel RSVP' }
+              { array.length == 1 ? 'Cancel RSVP' : 'RSVP' }
           </button>
 
           <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link>
