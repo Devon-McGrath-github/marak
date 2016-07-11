@@ -1,8 +1,16 @@
 import { writeNewActivityToDB } from '../firebaseInit'
+import { getActivities } from './getAllActivitiesAction'
 
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY'
 
-export const createActivity = (data) => {
-  console.log('CREATE ACTIVITY')
-  return {}
+export const createActivity = (payload) => {
+  return (dispatch) => {
+    writeNewActivityToDB(payload)
+      .then(() => {
+        dispatch(getActivities())
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 }

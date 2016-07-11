@@ -14,3 +14,9 @@
 * Agree on which test framework to use
 
 # Important: Double check scripts in package.json and gitignore: amend or add when necessary
+
+## Deploying to Firebase
+
+1. Run `npm run build` to build the latest bundle.js
+2. Run `npm run deploy` to deploy to Firebase
+3. Visit the link to the [website](https://test-9eee4.firebaseapp.com)

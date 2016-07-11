@@ -1,14 +1,15 @@
+import R from 'ramda'
+
 import rsvpReducer from './rsvpReducer'
 import deleteActivityReducer from './deleteActivityReducer'
 import { DELETE_ACTIVITY, deleteActivity } from '../actions/deleteActivityAction'
-import * as actions from '../actions/rsvpActions'
-import {RECIEVE_ACTIVITIES} from '../actions/getAllActivitiesAction'
-import R from 'ramda'
+import { RSVP_TOGGLE, toggleRSVP } from '../actions/rsvpActions'
+import { RECEIVE_ACTIVITIES } from '../actions/getAllActivitiesAction'
 
 
 const reducer = (state = {} , action) => {
   switch (action.type) {
-    case actions.RSVP_TOGGLE:
+    case RSVP_TOGGLE:
       state = R.values(state)
       return state.map((activity) => {
         if (activity.activityId === action.activityId) {
@@ -19,7 +20,7 @@ const reducer = (state = {} , action) => {
 
       })
 
-    case RECIEVE_ACTIVITIES:
+    case RECEIVE_ACTIVITIES:
       return action.activities;
 
     case DELETE_ACTIVITY:
