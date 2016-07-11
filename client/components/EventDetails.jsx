@@ -3,35 +3,37 @@ import { Link } from 'react-router'
 
 export default React.createClass({
   propTypes: {
-    activity: React.PropTypes.object,
-    attendees: React.PropTypes.array
+    activity: React.PropTypes.object
   },
   render () {
     let activity = this.props.activity
-    let activityId = activity ? activity.id : 0
+    let activityId = activity ? activity.activityId : 0
     let attendeeId = 10089
+
+    let activityCreatorId = 56
+
+    let currentUserId = 56
+
     if (activity) {
       return (
         <div>
+          <Link to='/'><h1>Home</h1></Link>
           <Link to='event-list'><button>Return</button></Link>
           <h1>Title: {activity.title}</h1>
           <h2>{activity.subtitle}</h2>
           <p>Description: {activity.description}</p>
-          <p>Date: {this.props.activity.date}, {activity.time}</p>
-          <p>Location: {this.props.activity.location}</p>
-          <p>Tasks: {this.props.activity.tasks}</p>
-          <p>Requirments{this.props.activity.requirments}</p>
+          <p>Date: {activity.activityStart && activity.activityEnd}</p>
+          <p>Location: {activity.formattedAddress}</p>
+          <p>Tasks: {activity.tasks}</p>        
           <p>Number people attending: {this.props.length} / {activity.numberRequired} </p>
 
-            <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId)}}>
-            RSVP</button>
-
+          <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId)} }>RSVP</button>
+          <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link>
         </div>
       )
     } else {
       return (
         <div>Loading...</div>
-
       )
     }
 

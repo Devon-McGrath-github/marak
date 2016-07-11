@@ -9,12 +9,9 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+
 const mapDispatchToProps = (dispatch) => {
-  return {
-    getActivities: () => {
-      dispatch(getActivities())
-    }
-  }
+  return {}
 }
 
 
