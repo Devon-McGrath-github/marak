@@ -12,6 +12,7 @@ var app = express();
 
 app.use(express.static(path.join(__dirname, '../static')));
 app.use(bodyParser.json());
+
 app.get('/', function (req, res) {
   res.send('<h1>Final Project</h1>');
 });
