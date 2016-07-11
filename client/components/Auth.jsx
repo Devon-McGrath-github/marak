@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 // import { openAuth, logoutUser } from '../actions/auth'
 import C from '../constants/authConstants'
 
+
 export default (props) => {
   switch (props.auth.status) {
     case C.AUTH_LOGGED_IN: return (
@@ -18,7 +19,10 @@ export default (props) => {
     )
     default: return (
       <div>
-        <button onClick={props.openAuth}>Please Log in</button>
+        <button onClick={()=> {props.openAuth('ricky.kynd@gmail.com', 'googlegoo')}}>Please Log in</button>
+
+
+
       </div>
     )
   }

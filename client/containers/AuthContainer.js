@@ -1,6 +1,9 @@
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
 import Auth from '../components/Auth'
 import { openAuth, logoutUser } from '../actions/authAction'
+
 
 const mapStateToProps = (state) => {
   return {
@@ -13,6 +16,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logoutUser: () => {
       dispatch(logoutUser())
+    },
+    openAuth: (username, password) => {
+      debugger
+      dispatch(openAuth(username, password))
     }
   }
 }

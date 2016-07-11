@@ -3,6 +3,8 @@ import firebase from 'firebase'
 
 import { auth } from '../dbInit'
 
+
+
 export const AUTH_LOGIN = 'AUTH_LOGIN'
 
 export const listenToAuth = () => {
@@ -23,22 +25,26 @@ export const listenToAuth = () => {
 	};
 };
 
-export const openAuth = () => {
+export const openAuth = (email, password) => {
 	return (dispatch) => {
-		dispatch({ type: C.AUTH_OPEN });
-    auth.createUserWithEmailAndPassword((email, password) => {
-			if (error) {
-				dispatch({ type: C.FEEDBACK_DISPLAY_ERROR, error: `Login failed! ${error}` });
-				dispatch({ type: C.AUTH_LOGOUT });
-			}
-		});
+		dispatch({ type: C.AUTH_OPEN })
+    console.log(email, password);
+    debugger
+    auth.signInWithEmailAndPassword(email, password).catch((error) => {
+      console.log(error.code, error.message)
+    })
 	};
 };
 
+// (email, password) => {
+// if (error) {
+//   dispatch({ type: C.FEEDBACK_DISPLAY_ERROR, error: `Login failed! ${error}` });
+//   dispatch({ type: C.AUTH_LOGOUT });
+// }
+// }
 export const logoutUser = () => {
-  debugger
 	return (dispatch) => {
 		dispatch({ type: C.AUTH_LOGOUT });
-		fireRef.unauth();
+		auth.signOut();
 	};
 };
