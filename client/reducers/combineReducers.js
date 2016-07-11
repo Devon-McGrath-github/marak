@@ -3,13 +3,11 @@ import { routerReducer } from 'react-router-redux'
 import { reducer as formReducer } from 'redux-form'
 
 import activities from './getAllActivitesReducer'
-import createActivityReducer from './createActivityReducer'
 
 const reducers = {
   routing: routerReducer,
   form: formReducer,
-  activities: activities,
-  createActivityReducer: createActivityReducer
+  activities: activities
 }
 
 const appReducer = combineReducers(reducers)
