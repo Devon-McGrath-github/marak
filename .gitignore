@@ -1,5 +1,6 @@
 node_modules
 bundle.j*
+dbInit.js
 # Logs
 logs
 *.log

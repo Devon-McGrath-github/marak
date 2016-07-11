@@ -3,11 +3,13 @@ import { routerReducer } from 'react-router-redux'
 import { reducer as formReducer } from 'redux-form'
 
 import activities from './getAllActivitesReducer'
+import auth from './authReducer'
 
 const reducers = {
   routing: routerReducer,
   form: formReducer,
-  activities: activities
+  activities: activities,
+  auth: auth
 }
 
 const appReducer = combineReducers(reducers)
