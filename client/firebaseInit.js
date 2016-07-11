@@ -65,11 +65,14 @@ export const writeNewActivityToDB = (payload) => {
     activityId: newActivityKey,
     activityCreatorId: payload.uid
   }
-  debugger
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
   updates['activities/' + newActivityKey] = newActivity;
 
   return firebase.database().ref().update(updates)
+}
+
+export const deleteActivityFromDB = (activity) => {
+  return firebase.database().ref().remove(activity);
 }

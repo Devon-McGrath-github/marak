@@ -1,8 +1,9 @@
 import * as actions from '../actions/deleteActivityAction'
+import {deleteActivityFromDB} from '../firebaseInit'
 
 const deleteAct = (state = {}, action) => {
-  console.log('steve')
-  return state
+  deleteActivityFromDB(state.activity)
+  debugger
 }
 
 export default deleteAct
