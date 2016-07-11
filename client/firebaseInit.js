@@ -11,7 +11,7 @@ export const getActivitiesFromDB = (callback) => {
 }
 
 export const getUserInfoFromDB = (callback) => {
- db.ref('currentUserId')
+ db.ref('auth')
   .on('value', (snapshot) => {
     callback(snapshot.val())
     console.log('getUserInfo', snapshot.val())

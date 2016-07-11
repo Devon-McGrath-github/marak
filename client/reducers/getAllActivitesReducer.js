@@ -1,6 +1,7 @@
 import rsvpReducer from './rsvpReducer'
 import deleteActivityReducer from './deleteActivityReducer'
-import { DELETE_ACTIVITY, deleteActivity } from '../actions/deleteActivityAction'
+import {DELETE_ACTIVITY} from '../actions/deleteActivityAction'
+import {TOGGLE_DELETE} from '../actions/toggleDeleteAction'
 import * as actions from '../actions/rsvpActions'
 import {RECIEVE_ACTIVITIES} from '../actions/getAllActivitiesAction'
 import R from 'ramda'
@@ -34,6 +35,9 @@ const reducer = (state = {} , action) => {
         return true
 
       })
+
+    case TOGGLE_DELETE:
+      return state
     default:
       return state;
   }

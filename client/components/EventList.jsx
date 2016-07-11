@@ -11,7 +11,7 @@ export default (props) => {
       {activities.map(function (activity) {
           return (
             <div key={activity.activityId}>
-            <p>Title: {activity.title}</p>
+            <p onClick={() => {this.props.toggleDelete(activity.acitivityId)}}>Title: {activity.title}</p>
             <p>subtitle: {activity.subtitle}</p>
             <p>Date: {activity.activityStart}</p>
             <Link to={`/event-details/${activity.activityId}`}><button>View Details</button></Link>

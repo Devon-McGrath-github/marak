@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
     getActivities: () => {
       dispatch(getActivities())
     },
+    toggleDelete: () => {
+      dispatch(toggleDelete())
+    },
     getUserInfo: () => {
       dispatch(getUserInfo())
     }
