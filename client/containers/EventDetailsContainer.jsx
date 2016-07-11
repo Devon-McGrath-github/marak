@@ -7,10 +7,7 @@ import { deleteActivity } from '../actions/deleteActivityAction'
 
 const mapStateToProps = (state, ownProps) => {
   const activities = state.activities
-  console.log('state', state);
   const selectedActivity = activities.filter((activity) => {
-    console.log('EventDetailsContainer', activities)
-    console.log('event details container', activity);
       return activity.activityId == ownProps.params.id
     })[0]
 

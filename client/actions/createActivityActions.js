@@ -10,9 +10,14 @@ export const pushActivityToDB = (data) => {
 }
 
 export const createActivity = (payload) => {
-  debugger;
   return (dispatch) => {
     console.log("writing to db")
-    writeNewActivityToDB()
+    writeNewActivityToDB(payload)
+      .then(() => {
+        dispatch(getActivities())
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 }

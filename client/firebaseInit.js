@@ -10,20 +10,28 @@ export const getActivitiesFromDB = (callback) => {
   })
 }
 
-export const writeNewActivityToDB = (activityId, description) => {
+export const writeNewActivityToDB = (payload) => {
   // A post entry.
-
   const newActivity = {
-    activityId: activityId,
-    description: description
-  }
+    title: payload.title,
+    subtitle: payload.subtitle,
+    description: payload.description,
+    activityStart: payload.activityStart,
+    activityEnd: payload.activityEnd,
+    formattedAddress: payload.formattedAddress,
+    numberRequired: payload.numberRequired,
+    tasks: payload.tasks
 
+  }
   // Get a key for a new Post.
-  const newPostKey = firebase.database().ref().child('activities/').push().key
+  const newActivityKey = firebase.database().ref().child('activities/').push().key
+
+  newActivity.activityId = newActivityKey
+  newActivity.activityCreatorId = 25 //hardcoding ID for now, will be updated when random key is inserted.
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
-  updates['activities/' + newPostKey] = newActivity;
+  updates['activities/' + newActivityKey] = newActivity;
 
-  return firebase.database().ref().update(updates);
+  return firebase.database().ref().update(updates)
 }

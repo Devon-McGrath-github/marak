@@ -8,7 +8,7 @@ import { createActivity } from '../actions/createActivityActions'
 
 const mapStateToProps = (state) => {
   return {
-    fields: ['title', 'description']
+    fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks']
   }
 }
 

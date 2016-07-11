@@ -10,7 +10,8 @@ export default React.createClass({
     let activityId = activity ? activity.activityId : 0
     let attendeeId = 10089
 
-    let activityCreatorId = activity.activityCreatorId
+    let activityCreatorId = 56
+
     let currentUserId = 56
 
     if (activity) {
@@ -21,10 +22,9 @@ export default React.createClass({
           <h1>Title: {activity.title}</h1>
           <h2>{activity.subtitle}</h2>
           <p>Description: {activity.description}</p>
-          <p>Date: </p>
-          <p>Location: {activity.location}</p>
-          <p>Tasks: {activity.tasks}</p>
-          <p>Requirments</p>
+          <p>Date: {activity.activityStart && activity.activityEnd}</p>
+          <p>Location: {activity.formattedAddress}</p>
+          <p>Tasks: {activity.tasks}</p>        
           <p>Number people attending: {this.props.length} / {activity.numberRequired} </p>
 
           <button onClick={() => { this.props.toggleRSVP(attendeeId, activityId)} }>RSVP</button>
