@@ -32,11 +32,12 @@ auth.onAuthStateChanged((user) => {
     });
   } else {
       // User is signed out.
-      // user.firebase.auth().signOut().then(function(user)) {
+      // user.firebase.auth().signOut()
+      // .thenfunction() {
         document.getElementById('sign-in-status').innerHTML = '<button>' + 'Signed out' + '<button>';
         document.getElementById('sign-in').textContent = 'Sign in';
         document.getElementById('account-details').textContent = 'null';
-    // }
+    //  }
   }
 }, (error) => {
   console.log(error);

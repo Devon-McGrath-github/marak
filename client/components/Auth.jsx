@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { openAuth, logoutUser } from '../actions/auth'
-import C from '../contants'
+import { openAuth, logoutUser } from '../actions/authAction'
+import C from '../constants/authConstants'
 
 export default (props) => {
   switch (props.auth.status) {
