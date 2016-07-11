@@ -46,9 +46,12 @@ auth.onAuthStateChanged((user) => {
 }
 );
 
-
 export const writeNewActivityToDB = (payload) => {
   // A post entry.
+
+  // Get a key for a new Post.
+  const newActivityKey = firebase.database().ref().child('activities/').push().key
+
   const newActivity = {
     title: payload.title,
     subtitle: payload.subtitle,
@@ -57,14 +60,10 @@ export const writeNewActivityToDB = (payload) => {
     activityEnd: payload.activityEnd,
     formattedAddress: payload.formattedAddress,
     numberRequired: payload.numberRequired,
-    tasks: payload.tasks
-
+    tasks: payload.tasks,
+    activityId: newActivityKey,
+    activityCreatorId: payload.uid
   }
-  // Get a key for a new Post.
-  const newActivityKey = firebase.database().ref().child('activities/').push().key
-
-  newActivity.activityId = newActivityKey
-  newActivity.activityCreatorId = 25 //hardcoding ID for now, will be updated when random key is inserted.
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
