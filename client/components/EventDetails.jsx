@@ -26,10 +26,6 @@ export default React.createClass({
           <Link to='/'><h1>Home</h1></Link>
           <Link to='event-list'><button>Return</button></Link>
 
-          <div>
-            <p>{activity.completed} test text hererere</p>
-          </div>
-
           <h1>Title: {activity.title}</h1>
           <h2>{activity.subtitle}</h2>
           <p>Description: {activity.description}</p>
