@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import Auth from '../containers/AuthContainer'
 
 export default (props) => (
   <div>
@@ -8,7 +9,8 @@ export default (props) => (
     <Link to='new-event'><button>New Event </button></Link>
 
     <div id='reducer-test-div'>
-    <div id="firebaseui-auth-container"></div>
+        <div id="firebaseui-auth-container"></div>
+    <Auth />
 
     </div>
   </div>

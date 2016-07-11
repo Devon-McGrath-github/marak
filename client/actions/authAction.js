@@ -23,21 +23,56 @@ export const listenToAuth = () => {
 	};
 };
 
-export const openAuth = () => {
+var GoogleProvider = new firebase.auth.GoogleAuthProvider()
+
+export const signInWithGoogle = () => {
 	return (dispatch) => {
-		dispatch({ type: C.AUTH_OPEN });
-    auth.createUserWithEmailAndPassword((email, password) => {
-			if (error) {
-				dispatch({ type: C.FEEDBACK_DISPLAY_ERROR, error: `Login failed! ${error}` });
-				dispatch({ type: C.AUTH_LOGOUT });
-			}
-		});
+		dispatch({ type: C.AUTH_OPEN })
+    auth.signInWithPopup(GoogleProvider)
+      .then((result) => {
+        const token = result.credential.accessToken
+        const user = result.user
+        console.log(user)
+        dispatch({ type: C.AUTH_LOGIN, username: user.displayName, uid: user.uid })
+      })
+      .catch((error) => {
+        dispatch({ type: C.AUTH_ERROR, errorCode: error.code, errorMessage: error.message })
+        console.log(error.code, error.message)
+      })
+
+	};
+};
+
+export const signInWithEmail = (email, password) => {
+	return (dispatch) => {
+		dispatch({ type: C.AUTH_OPEN })
+    console.log(email, password);
+    auth.signInWithEmailAndPassword(email, password).catch((error) => {
+      console.log(error.code, error.message)
+    })
+	};
+};
+
+export const signUp = (email, password) => {
+	return (dispatch) => {
+		dispatch({ type: C.AUTH_OPEN })
+    console.log(email, password);
+    auth.createUserWithEmailAndPassword(email, password).catch((error) => {
+      console.log(error.code, error.message)
+    })
 	};
 };
 
 export const logoutUser = () => {
 	return (dispatch) => {
 		dispatch({ type: C.AUTH_LOGOUT });
-		fireRef.unauth();
+		auth
+      .signOut()
+      .then(() => {
+        console.log("signed out");
+      })
+      .catch((error) => {
+        console.log(error.code, error.message)
+      })
 	};
 };

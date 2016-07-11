@@ -10,48 +10,8 @@ export const getActivitiesFromDB = (callback) => {
   })
 }
 
-// Initialize Firebase oAuth
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in.
-    var displayName = user.displayName;
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var uid = user.uid;
-    var providerData = user.providerData;
-    user.getToken().then(function(accessToken) {
-      document.getElementById('sign-in-status').textContent = user.displayName + ' ' + 'Signed in';
-      document.getElementById('sign-in').innerHTML = '<button>' + 'Sign out' + '</button>';
-      document.getElementById('account-details').textContent = JSON.stringify({
-        displayName: displayName,
-        email: email,
-        emailVerified: emailVerified,
-        photoURL: photoURL,
-        uid: uid,
-        accessToken: accessToken,
-        providerData: providerData
-      }, null, '  ');
-    });
-  } else {
-      // User is signed out.
-      // user.firebase.auth().signOut().then(function(user)) {
-        document.getElementById('sign-in-status').innerHTML = '<button>' + 'Signed out' + '<button>';
-        document.getElementById('sign-in').textContent = 'Sign in';
-        document.getElementById('account-details').textContent = 'null';
-    // }
-  }
-}, (error) => {
-  console.log(error);
-}
-);
-
 export const writeNewActivityToDB = (payload) => {
-  // A post entry.
-
-  // Get a key for a new Post.
   const newActivityKey = firebase.database().ref().child('activities/').push().key
-
   const newActivity = {
     title: payload.title,
     subtitle: payload.subtitle,
@@ -64,13 +24,47 @@ export const writeNewActivityToDB = (payload) => {
     activityId: newActivityKey,
     activityCreatorId: payload.uid
   }
-
-  // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
   updates['activities/' + newActivityKey] = newActivity;
-
   return firebase.database().ref().update(updates)
 }
+
+
+// Initialize Firebase oAuth
+// auth.onAuthStateChanged((user) => {
+//   if (user) {
+//     // User is signed in.
+//     var displayName = user.displayName;
+//     var email = user.email;
+//     var emailVerified = user.emailVerified;
+//     var photoURL = user.photoURL;
+//     var uid = user.uid;
+//     var providerData = user.providerData;
+//     user.getToken().then(function(accessToken) {
+//       document.getElementById('sign-in-status').textContent = user.displayName + ' ' + 'Signed in';
+//       document.getElementById('sign-in').innerHTML = '<button>' + 'Sign out' + '</button>';
+//       document.getElementById('account-details').textContent = JSON.stringify({
+//         displayName: displayName,
+//         email: email,
+//         emailVerified: emailVerified,
+//         photoURL: photoURL,
+//         uid: uid,
+//         accessToken: accessToken,
+//         providerData: providerData
+//       }, null, '  ');
+//     });
+//   } else {
+//       // User is signed out.
+//       // user.firebase.auth().signOut().then(function(user)) {
+//         document.getElementById('sign-in-status').innerHTML = '<button>' + 'Signed out' + '<button>';
+//         document.getElementById('sign-in').textContent = 'Sign in';
+//         document.getElementById('account-details').textContent = 'null';
+//     // }
+//   }
+// }, (error) => {
+//   console.log(error);
+// }
+// );
 
 export const deleteActivityFromDB = (activity) => {
   console.log(activity)
