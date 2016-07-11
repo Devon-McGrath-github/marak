@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
 
 class CreateActivity extends Component {
@@ -10,7 +10,9 @@ class CreateActivity extends Component {
     return (
       <div>
         <Link to='/'><h1>Home</h1></Link>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={() => {
+            handleSubmit()
+            hashHistory.push('event-list')}}>
           <div>
             <label>Title: </label>
             <input type="text" placeholder="title" {...title}/>

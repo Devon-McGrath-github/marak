@@ -71,3 +71,8 @@ export const writeNewActivityToDB = (payload) => {
 
   return firebase.database().ref().update(updates)
 }
+
+export const deleteActivityFromDB = (activity) => {
+  console.log(activity)
+  return firebase.database().ref(`activities/${activity.activityId}`).remove()
+}
