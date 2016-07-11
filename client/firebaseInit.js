@@ -46,7 +46,6 @@ auth.onAuthStateChanged((user) => {
 }
 );
 
-
 export const writeNewActivityToDB = (payload) => {
   // A post entry.
 
@@ -65,7 +64,6 @@ export const writeNewActivityToDB = (payload) => {
     activityId: newActivityKey,
     activityCreatorId: payload.uid
   }
-  debugger
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
