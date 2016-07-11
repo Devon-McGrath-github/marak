@@ -8,14 +8,16 @@ export default React.createClass({
   },
   render () {
     let activity = this.props.activity
-    let activityId = activity ? activity.activityId : 0
-    let currentUserId = 10089
+    let auth = this.props.auth
 
-    let activityCreatorId = 56
+    let activityId = activity ? activity.activityId : 0
+    let currentUserId = auth.uid
+
+    let activityCreatorId = activity.activityCreatorId
 
     let array = []
 
-    console.log(activity)
+
     if (activity) {
       return (
         <div>
@@ -34,7 +36,7 @@ export default React.createClass({
               if (attendeeId === currentUserId) {
                 array.push(attendeeId)}
               })}
-              { array.length == 1 ? 'Cancel RSVP' : 'RSVP' }
+              { array.length === 1 ? 'Cancel RSVP' : 'RSVP' }
           </button>
 
           <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link>
