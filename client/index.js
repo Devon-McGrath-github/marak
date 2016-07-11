@@ -19,7 +19,8 @@ import Landing from './containers/LandingContainer'
 import EventList from './containers/EventListContainer'
 import CreateActivity from './containers/CreateActivityContainer'
 import EventDetails from './containers/EventDetailsContainer'
-import App from './components/App'
+import Auth from './containers/AuthContainer'
+import App from './containers/AppContainer'
 
 import {getActivities} from './actions/getAllActivitiesAction'
 
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <Route path='event-list' component={EventList}/>
           <Route path='event-details/:id' component={EventDetails} />
           <Route path='new-event' component={CreateActivity} />
+          <Route path='auth' component={Auth} />
         </Route>
       </Router>
     </Provider>,
