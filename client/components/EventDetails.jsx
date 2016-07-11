@@ -32,13 +32,11 @@ export default React.createClass({
           <button onClick={() => { this.props.toggleRSVP(currentUserId, activityId)} }>
             {R.values(activity.attendeeIds).map((attendeeId) => {
               if (attendeeId === currentUserId) {
-                array.push(attendeeId)
-              }
-            }),
-              console.log(array)
-            /* attendeeId === currentUserId ? 'RSVP' : 'Cancel RSVP' */
-          } { array.length == 1 ? 'RSVP' : 'Cancel RSVP' }
+                array.push(attendeeId)}
+              })}
+              { array.length == 1 ? 'RSVP' : 'Cancel RSVP' }
           </button>
+
           <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link>
         </div>
       )
