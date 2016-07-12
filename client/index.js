@@ -8,10 +8,9 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { toggleRSVP } from './actions/rsvpActions'
-
 import { listenToAuth } from './actions/authAction'
-
 import { deleteActivity } from './actions/deleteActivityAction'
+import { uploadTask } from './storageInit'
 
 import appReducer from './reducers/combineReducers'
 
@@ -53,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('app')
 )
 store.dispatch(listenToAuth())
+
+
 
 
 })

@@ -22,10 +22,12 @@ export const writeNewActivityToDB = (payload) => {
     numberRequired: payload.numberRequired,
     tasks: payload.tasks,
     activityId: newActivityKey,
-    activityCreatorId: payload.uid
+    activityCreatorId: payload.uid,
+    images: payload.images
   }
   const updates = {};
   updates['activities/' + newActivityKey] = newActivity;
+  debugger
   return firebase.database().ref().update(updates)
 }
 

@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
+import { uploadImages } from '../storageInit'
 
 class CreateActivity extends Component {
 
   render() {
-    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid}, handleSubmit} = this.props
-    uid.value=this.props.userId
+    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, images}, handleSubmit} = this.props
+    let imageUrl = null
     return (
       <div>
         <Link to='/'><h1>Home</h1></Link>
@@ -45,16 +46,31 @@ class CreateActivity extends Component {
             <label>Tasks: </label>
             <input type="text" placeholder="tasks" {...tasks}/>
           </div>
+          <div>
+              <label>Images: </label>
+              <input type="file" onChange={(e) => {
+                          e.preventDefault()
+                          uploadImages(e.target.files,(url) => {
+                              let a = images
+                             console.log(url);
+                             this.props.updateUrl(url)
+                            debugger
+                          })
+                      }
+                  } multiple />
+          </div>
+
           <button type="submit">Submit</button>
         </form>
-      </div>
+
+  </div>
     )
   }
 }
 
 CreateActivity = reduxForm({
   form: 'createActivityForm',
-  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid'], initialValues: {uid: '1'}
+  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid', 'images'], initialValues: {uid: '1'}
 })(CreateActivity)
 
 export default CreateActivity
