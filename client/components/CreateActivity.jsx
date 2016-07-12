@@ -1,8 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
+import Calendar from 'react-input-calendar'
+
 
 class CreateActivity extends Component {
+
+
 
   render() {
     const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, attendeeIds}, handleSubmit} = this.props
@@ -27,7 +31,7 @@ class CreateActivity extends Component {
           </div>
           <div>
             <label>Activity Start: </label>
-            <input type="text" placeholder="activity start" {...activityStart}/>
+            <Calendar format='DD/MM/YYYY' date={'4-12-2014'} {...activityStart} />
           </div>
           <div>
             <label>Activity End: </label>
