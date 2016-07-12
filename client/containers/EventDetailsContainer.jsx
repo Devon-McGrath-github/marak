@@ -10,7 +10,7 @@ import hasRSVPed from '../utilities/hasRSVPed'
 const mapStateToProps = (state, ownProps) => {
   const auth = state.auth
   const activities = state.activities
-  const selectedActivity = activities.filter((activity) => {
+  const selectedActivity = R.values(activities).filter((activity) => {
       return activity.activityId == ownProps.params.id
     })[0]
 
