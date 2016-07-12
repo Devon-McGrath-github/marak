@@ -8,7 +8,7 @@ import { createActivity } from '../actions/createActivityActions'
 
 const mapStateToProps = (state) => {
   return {
-     initialValues: {uid: state.auth.uid}
+     initialValues: {uid: state.auth.uid, attendeeIds: [state.auth.uid]}
   }
 }
 

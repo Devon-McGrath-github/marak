@@ -5,8 +5,8 @@ import { reduxForm } from 'redux-form'
 class CreateActivity extends Component {
 
   render() {
-    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid}, handleSubmit} = this.props
-    uid.value=this.props.userId
+    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, attendeeIds}, handleSubmit} = this.props
+
     return (
       <div>
         <Link to='/'><h1>Home</h1></Link>
@@ -54,7 +54,7 @@ class CreateActivity extends Component {
 
 CreateActivity = reduxForm({
   form: 'createActivityForm',
-  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid'], initialValues: {uid: '1'}
+  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid', 'attendeeIds'], initialValues: {uid: '1'}
 })(CreateActivity)
 
 export default CreateActivity
