@@ -42,8 +42,7 @@ export default React.createClass({
             shortname='unityhivekarma'
             identifier={activity.activityId}
             title={activity.title}
-            url="https://test-9eee4.firebaseapp.com"
-            category_id="123456"
+            url="https://test-9eee4.firebaseapp.com/"
             onNewComment={this.props.handleNewComment}/>
         </div>
       )
