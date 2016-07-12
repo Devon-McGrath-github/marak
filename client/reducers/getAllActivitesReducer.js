@@ -20,7 +20,7 @@ const reducer = (state = {} , action) => {
 
     case CANCEL_RSVP:
       console.log('CANCEL_RSVP in getAllActivitiesReducer')
-
+      // need to add client side state update. Will add instant
       return state
 
 
