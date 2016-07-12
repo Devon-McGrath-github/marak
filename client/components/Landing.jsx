@@ -9,8 +9,9 @@ export default (props) => (
     <Link to='new-event'><button>New Event </button></Link>
 
     <div id='reducer-test-div'>
-        <div id="firebaseui-auth-container"></div>
-    <Auth />
+
+
+
 
     </div>
   </div>

@@ -5,6 +5,7 @@ export default (props) => {
     let password = null
   return (
       <div>
+          
           <form onSubmit={(e)=> {
                   e.preventDefault()
                   props.signInWithGoogle()
