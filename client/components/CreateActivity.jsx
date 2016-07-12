@@ -31,7 +31,10 @@ class CreateActivity extends Component {
           </div>
           <div>
             <label>Activity Start: </label>
-            <Calendar format='DD/MM/YYYY' date={'4-12-2014'} {...activityStart} />
+            <Calendar format='DD/MM/YYYY' date={this.props.selectedDate} onChange={(e) => {
+                this.props.updateDate(e)
+
+              }}/>
           </div>
           <div>
             <label>Activity End: </label>
