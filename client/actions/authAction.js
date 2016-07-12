@@ -23,6 +23,8 @@ export const listenToAuth = () => {
 	};
 };
 
+
+
 // var GoogleProvider = new firebase.auth.GoogleAuthProvider()
 //
 // export const signInWithGoogle = () => {

@@ -6,6 +6,7 @@ import { logoutUser } from '../actions/authAction'
 
 const mapStateToProps = (state) => {
   return {
+    auth: state.auth
   }
 }
 
