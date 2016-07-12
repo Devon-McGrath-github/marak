@@ -1,3 +1,6 @@
+html {
+  box-sizing: border-box;
+}
 /* EVENT LIST COMPONENT */
 
 .banner {
@@ -29,3 +32,51 @@
 }
 
 /* EVENT DETAILS PAGE */
+
+.hero-image {
+  height: 1000px;
+  background-image: url(./images/10.jpg);
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Landing Container */
+
+
+.landing-create-event {
+  height: 1000px;
+  opacity: 0.4;
+  width: 50%;
+  font-size: 20%;
+}
+
+.landing-list-event {
+  position: absolute;
+  right: 0;
+  height: 1000px;
+  opacity: 0.4;
+  width: 50%;
+  font-size: 20%;
+}
+
+.events-list-text, .create-event-text {
+  font-size: 6rem;
+  opacity: 1;
+}
+
+/*  EVENT LIST STYLES */
+
+.card-style {
+  height: 400px;
+  width: 300px;
+}
+
+#desc-column {
+  background-image: url(./images/building.jpg);
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}

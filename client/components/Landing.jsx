@@ -1,12 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Auth from '../containers/AuthContainer'
+import Nav from './Nav'
+
 
 export default (props) => (
   <div>
-    <div><h1>Background goes here</h1></div>
+    <Nav />
+    <div className="hero-image">
+      <div className="hero-buttons">
+        <div className="new-event">
+          <Link to='new-event'><button className="ui teal button landing-list-event"><span className="create-event-text">Create An Event</span></button></Link>
+        </div>
+        <div className="event-list">
+          <Link to='event-list'><button className="ui olive button landing-create-event"><span className="events-list-text">Events Near Me</span></button></Link>
+        </div>
+      </div>
+    </div>
   </div>
 )
+
+
 // DO NOT DELETE ****************************
 //<Auth />
 // <div id='reducer-test-div'></div>

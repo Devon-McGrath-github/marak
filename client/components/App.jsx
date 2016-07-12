@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './nav'
 import { Link } from 'react-router'
 
 export default React.createClass({
@@ -9,7 +8,6 @@ export default React.createClass({
         return (
             <div>
                 <div>
-                    <Nav />
                     <p>Logged in as {this.props.auth.username}</p>
                     <button onClick={this.props.logoutUser}>Sign Out</button>
                 </div>
@@ -22,7 +20,6 @@ export default React.createClass({
         return (
             <div>
               <div>
-                  <Nav />
                   {/*<Link to='auth'><button>Sign In</button></Link>
                   <a href="/login.html">Sign In</a>
                   <Link to='sign-up'><button>Sign Up</button></Link>*/}

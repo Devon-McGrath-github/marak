@@ -1,11 +1,13 @@
 import React from 'react'
 import R from 'ramda'
 import { Link } from 'react-router'
+import Nav from './Nav'
 
 export default (props) => {
   const activities = R.values(props.activities)
   return (
     <div>
+    <Nav />
     <div className="banner">
       <div className="banner-title">Events</div>
     </div>

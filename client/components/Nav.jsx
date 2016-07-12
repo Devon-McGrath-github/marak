@@ -2,12 +2,11 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-
 export default (props) => {
   return (
     <div>
-        <div className="ui inverted blue menu">
-          <Link to='/'><a className="active item">Home</a></Link>
+        <div className="ui olive menu">
+          <Link to='/'><a className="active item">2 Hands</a></Link>
           <Link to='event-list'><a className="item" onClick={() => props.getActivities()}>Event List</a></Link>
           <Link to='new-event'><a className="item">Create Event</a></Link>
         <div className="right menu">
