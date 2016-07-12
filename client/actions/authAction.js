@@ -58,12 +58,15 @@ export const listenToAuth = () => {
 export const signUp = (email, password) => {
 	return (dispatch) => {
 		dispatch({ type: C.AUTH_OPEN })
+    // dispatch({ type: C.SIGN_UP })
     console.log(email, password);
     auth.createUserWithEmailAndPassword(email, password).catch((error) => {
+
       console.log(error.code, error.message)
     })
 	};
 };
+
 
 export const logoutUser = () => {
 	return (dispatch) => {

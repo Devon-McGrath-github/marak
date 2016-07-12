@@ -8,6 +8,7 @@ export default React.createClass({
             <div>
                 <div>
                     <h5>This is the nav bar</h5>
+                    <p>Logged in as {this.props.auth.username}</p>
                     <button onClick={this.props.logoutUser}>Sign Out</button>
                 </div>
                <div>
@@ -20,7 +21,9 @@ export default React.createClass({
             <div>
               <div>
                   <h5>This is the nav bar</h5>
-                  <Link to='auth'><button>Sign In</button></Link>
+                  {/*<Link to='auth'><button>Sign In</button></Link>*/}
+                  <a href="/login.html">Sign In</a>
+                  <Link to='sign-up'><button>Sign Up</button></Link>
               </div>
               <div>
                   {this.props.children}

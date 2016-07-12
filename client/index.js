@@ -21,6 +21,7 @@ import CreateActivity from './containers/CreateActivityContainer'
 import EventDetails from './containers/EventDetailsContainer'
 import Auth from './containers/AuthContainer'
 import App from './containers/AppContainer'
+import SignUp from './containers/SignUpContainer'
 
 import {getActivities} from './actions/getAllActivitiesAction'
 
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <Route path='event-details/:id' component={EventDetails} />
           <Route path='new-event' component={CreateActivity} />
           <Route path='auth' component={Auth} />
+          <Route path='sign-up' component={SignUp} />
         </Route>
       </Router>
     </Provider>,
