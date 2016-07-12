@@ -22,7 +22,8 @@ export const writeNewActivityToDB = (payload) => {
     numberRequired: payload.numberRequired,
     tasks: payload.tasks,
     activityId: newActivityKey,
-    activityCreatorId: payload.uid
+    activityCreatorId: payload.uid,
+    attendeeIds: payload.attendeeIds
   }
   const updates = {};
   updates['activities/' + newActivityKey] = newActivity;
