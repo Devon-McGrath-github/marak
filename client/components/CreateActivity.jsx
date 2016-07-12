@@ -50,12 +50,7 @@ class CreateActivity extends Component {
               <label>Images: </label>
               <input type="file" onChange={(e) => {
                           e.preventDefault()
-                          uploadImages(e.target.files,(url) => {
-                              let a = images
-                             console.log(url);
-                             this.props.updateUrl(url)
-                            debugger
-                          })
+                          this.props.uploadImageRequest(e.target.files)
                       }
                   } multiple />
           </div>

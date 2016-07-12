@@ -5,6 +5,7 @@ import { reduxForm } from 'redux-form'
 import CreateActivity from '../components/CreateActivity'
 
 import { createActivity } from '../actions/createActivityActions'
+import { uploadImageRequest } from '../actions/uploadImagesActions'
 
 
 const mapStateToProps = (state) => {
@@ -19,8 +20,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       debugger
       dispatch(createActivity(payload))
     },
-    updateUrl: (url) => {
-      dispatch({ type: 'redux-form/BLUR', field: "images", value: url, touch: true, form: 'createActivityForm'})
+    uploadImageRequest: (url) => {
+      dispatch(uploadImageRequest(url))
     }
   }
 }
