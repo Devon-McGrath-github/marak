@@ -1,7 +1,7 @@
-export const DELETE_ACTIVITY = 'DELETE_ACTIVITY'
-
 import { getActivities } from './getAllActivitiesAction'
 import { deleteActivityFromDB } from '../firebaseInit'
+
+export const DELETE_ACTIVITY = 'DELETE_ACTIVITY'
 
 export const deleteActivityRequest = (currentUserId, activityCreatorId, activityId) => {
   return (dispatch) => {
@@ -9,7 +9,6 @@ export const deleteActivityRequest = (currentUserId, activityCreatorId, activity
     deleteActivityFromDB({currentUserId, activityCreatorId, activityId})
       .then((result) => {
         dispatch(getActivities())
-
       })
   }
 }

@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import R from 'ramda'
 
 import EventDetails from '../components/EventDetails'
-import { toggleRSVP } from '../actions/rsvpActions'
+import { addAttendeeRequest } from '../actions/rsvpActions'
 import { deleteActivityRequest } from '../actions/deleteActivityAction'
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleRSVP: (attendeeId, activityId) => dispatch(toggleRSVP(attendeeId, activityId)),
+    toggleRSVP: (attendeeId, activityId, attendeeIds) => dispatch(addAttendeeRequest(attendeeId, activityId, attendeeIds)),
     deleteActivity: (currentUserId, activityCreatorId, activityId) => dispatch(deleteActivityRequest(currentUserId, activityCreatorId, activityId))
   }
 }

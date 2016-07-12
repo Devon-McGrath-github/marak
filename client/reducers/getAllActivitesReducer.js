@@ -2,7 +2,7 @@ import R from 'ramda'
 
 import rsvpReducer from './rsvpReducer'
 import { DELETE_ACTIVITY } from '../actions/deleteActivityAction'
-import { RSVP_TOGGLE, toggleRSVP } from '../actions/rsvpActions'
+import { RSVP_TOGGLE, CANCEL_RSVP, toggleRSVP } from '../actions/rsvpActions'
 import { RECEIVE_ACTIVITIES } from '../actions/getAllActivitiesAction'
 
 
@@ -17,6 +17,11 @@ const reducer = (state = {} , action) => {
         return activity;
 
       })
+
+    case CANCEL_RSVP:
+      console.log('CANCEL_RSVP in getAllActivitiesReducer')
+      return state
+
 
     case RECEIVE_ACTIVITIES:
       return action.activities;

@@ -12,7 +12,7 @@ export default React.createClass({
 
     let activityId = activity ? activity.activityId : 0
     let currentUserId = auth.uid
-
+    let attendeeIds = activity.attendeeIds
     let activityCreatorId = activity.activityCreatorId
 
     let array = []
@@ -31,12 +31,12 @@ export default React.createClass({
           <p>Tasks: {activity.tasks}</p>
           <p>Number people attending: {this.props.length} / {activity.numberRequired} </p>
 
-          <button onClick={() => { this.props.toggleRSVP(currentUserId, activityId)} }>
+          <button onClick={() => { this.props.toggleRSVP(currentUserId, activityId, R.values(attendeeIds))} }>
             {R.values(activity.attendeeIds).map((attendeeId) => {
               if (attendeeId === currentUserId) {
                 array.push(attendeeId)}
               })}
-              { array.length === 1 ? 'Cancel RSVP' : 'RSVP' }
+              { array.length >= 1 ? 'Cancel RSVP' : 'RSVP' }
           </button>
 
           <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link>
