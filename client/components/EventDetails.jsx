@@ -28,7 +28,7 @@ export default React.createClass({
           <p>Date: {activity.activityStart && activity.activityEnd}</p>
           <p>Location: {activity.formattedAddress}</p>
           <p>Tasks: {activity.tasks}</p>
-          <p>Number people attending: {this.props.length} / {activity.numberRequired} </p>
+          <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
 
           <button onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
             { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
