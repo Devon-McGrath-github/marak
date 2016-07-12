@@ -2,17 +2,17 @@ import R from 'ramda'
 
 import rsvpReducer from './rsvpReducer'
 import { DELETE_ACTIVITY } from '../actions/deleteActivityAction'
-import { RSVP_TOGGLE, CANCEL_RSVP, toggleRSVP } from '../actions/rsvpActions'
+import { ADD_RSVP, CANCEL_RSVP } from '../actions/rsvpActions'
 import { RECEIVE_ACTIVITIES } from '../actions/getAllActivitiesAction'
 
 
 const reducer = (state = {} , action) => {
   switch (action.type) {
-    case RSVP_TOGGLE:
+    case ADD_RSVP:
       return state.map((activity) => {
         if (activity.activityId === action.activityId) {
-          let newArray = rsvpReducer(R.values(activity.attendeeIds), action)
-          activity.attendeeIds = newArray
+          let attendees = rsvpReducer(activity.attendeeIds, action)
+          activity.attendeeIds = attendees
         }
         return activity;
 
@@ -20,6 +20,7 @@ const reducer = (state = {} , action) => {
 
     case CANCEL_RSVP:
       console.log('CANCEL_RSVP in getAllActivitiesReducer')
+
       return state
 
 

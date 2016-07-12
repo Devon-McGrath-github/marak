@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router'
 import R from 'ramda'
 
+import hasRSVPed from '../utilities/hasRSVPed'
+
 export default React.createClass({
   propTypes: {
     activity: React.PropTypes.object
@@ -14,9 +16,6 @@ export default React.createClass({
     let currentUserId = auth.uid
     let attendeeIds = activity.attendeeIds
     let activityCreatorId = activity.activityCreatorId
-
-    let array = []
-
 
     if (activity) {
       return (
@@ -31,12 +30,8 @@ export default React.createClass({
           <p>Tasks: {activity.tasks}</p>
           <p>Number people attending: {this.props.length} / {activity.numberRequired} </p>
 
-          <button onClick={() => { this.props.toggleRSVP(currentUserId, activityId, R.values(attendeeIds))} }>
-            {R.values(activity.attendeeIds).map((attendeeId) => {
-              if (attendeeId === currentUserId) {
-                array.push(attendeeId)}
-              })}
-              { array.length >= 1 ? 'Cancel RSVP' : 'RSVP' }
+          <button onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
+            { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
           </button>
 
           <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link>
