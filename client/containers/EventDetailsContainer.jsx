@@ -25,10 +25,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleRSVP: (attendeeId, activityId, attendeeIds) => dispatch(toggleRSVP(attendeeId, activityId, attendeeIds)),
     deleteActivity: (currentUserId, activityCreatorId, activityId) => dispatch(deleteActivityRequest(currentUserId, activityCreatorId, activityId)),
-    hasRSVPed,
-    handleNewComment: function(comment) {
-        console.log(comment.text);
-    }
+    hasRSVPed
   }
 }
 
