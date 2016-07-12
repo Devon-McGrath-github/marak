@@ -10,7 +10,8 @@ import { uploadImageRequest } from '../actions/uploadImagesActions'
 
 const mapStateToProps = (state) => {
   return {
-     initialValues: {uid: state.auth.uid, attendeeIds: [state.auth.uid]},
+
+     initialValues: {uid: state.auth.uid, attendeeIds: [0]},
      imageUpload: state.imageUpload
   }
 }
@@ -18,7 +19,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmit: (payload) => {
-      debugger
       dispatch(createActivity(payload))
     },
     uploadImageRequest: (url) => {
