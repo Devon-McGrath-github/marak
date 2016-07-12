@@ -11,6 +11,9 @@ class CreateActivity extends Component {
     return (
       <div>
         <Nav />
+        <div className="banner banner-create">
+          <div className="banner-title">Create an Event</div>
+        </div>
           <form className="ui form container" onSubmit={() => {
               handleSubmit()
               hashHistory.push('event-list')}}>

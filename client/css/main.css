@@ -5,7 +5,15 @@ html {
 
 .banner {
   height: 300px;
-  background-image: url(./images/beach.jpg);
+  background-image: url(./images/road.jpeg);
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.banner-create {
+  height: 300px;
+  background-image: url(./images/waterfall.jpeg);
   background-color: transparent;
   background-size: cover;
   background-position: center center;
@@ -21,7 +29,10 @@ html {
   color: #fff;
   padding-left: 20%;
   padding-top: 7%;
+  font-family: 'Unica One', cursive;
 }
+
+
 
 .gaps {
   padding: 10px;
@@ -31,23 +42,28 @@ html {
   border: 1px solid #ededed;
 }
 
-/* EVENT DETAILS PAGE */
+/* Landing Container */
 
 .hero-image {
   height: 1000px;
-  background-image: url(./images/10.jpg);
+  background-image: url(./images/hero-forest.jpg);
   background-color: transparent;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-/* Landing Container */
-
+.hero-header {
+  font-size: 10rem;
+  font-family: 'Unica One', cursive;
+  color: #fff;
+  padding-left: 38%;
+  padding-top: 15%;
+}
 
 .landing-create-event {
   height: 1000px;
-  opacity: 0.4;
+  opacity: 0;
   width: 50%;
   font-size: 20%;
 }
@@ -56,7 +72,7 @@ html {
   position: absolute;
   right: 0;
   height: 1000px;
-  opacity: 0.4;
+  opacity: 0;
   width: 50%;
   font-size: 20%;
 }
@@ -66,12 +82,8 @@ html {
   opacity: 1;
 }
 
-/*  EVENT LIST STYLES */
+/*  EVENT DETAILS STYLES */
 
-.card-style {
-  height: 400px;
-  width: 300px;
-}
 
 #desc-column {
   background-image: url(./images/building.jpg);
@@ -79,4 +91,27 @@ html {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+ .event-details-title {
+   font-family: 'Unica One', cursive;
+   font-size: 7rem;
+   color: #e6e6e6;
+   padding-right: 50%;
+ }
+
+.subtitle-header {
+  color: #fff;
+}
+
+p {
+  font-family: 'Athiti', sans-serif;
+}
+
+.event-deets {
+  height: 40rem;
+}
+
+.desc-box {
+  height: 40rem;
 }

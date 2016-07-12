@@ -33,6 +33,8 @@ export default React.createClass({
                 </div>
                 <div className="content">
                   <a className="header">{activity.title}</a>
+                  <p>Location: {activity.formattedAddress}</p>
+                  <p>Tasks: {activity.tasks}</p>
                 <div className="meta">
                   <span className="date">{activity.activityStart && activity.activityEnd}</span>
                   <span>Number people attending: {this.props.length} / {activity.numberRequired} </span>
@@ -49,16 +51,20 @@ export default React.createClass({
               </div>
             </div>
 
-             {/* DESCRIPTION BOX */}
-             <div id="desc-column" className="twelve wide column blue">
-              <h2 className="ui center aligned icon header"><i className="calendar users icon"></i>{activity.title}</h2>
-                <div className="description">{activity.description}</div>
-                <div>
-                <p>Location: {activity.formattedAddress}</p>
-                <p>Tasks: {activity.tasks}</p>
-              </div>
+            {/* TITLE IMAGE HEADER BOX */}
+            <div id="desc-column" className="twelve wide column blue">
+              <h1 className="ui center aligned event-details-title">{activity.title}</h1>
+              <h2 className="subtitle-header">{activity.subtitle}</h2>
             </div>
-            <div id="disqus_thread"></div>
+
+            {/* DESCRIPTION BOX */}
+              <div className="event-deets four wide column teal">
+                <h1>Event Details</h1>
+              </div>
+
+              <div className="desc-box twelve wide column olive">
+                <h1>Description: {activity.description}</h1>
+              </div>
             </div>
         </div>
       )

@@ -8,6 +8,7 @@ export default (props) => (
   <div>
     <Nav />
     <div className="hero-image">
+    <div className="hero-header">KARMA HIVE</div>
       <div className="hero-buttons">
         <div className="new-event">
           <Link to='new-event'><button className="ui teal button landing-list-event"><span className="create-event-text">Create An Event</span></button></Link>
