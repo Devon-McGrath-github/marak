@@ -5,12 +5,23 @@ import C from '../constants/authConstants'
 
 import SignInWithGoogle from './SignInWithGoogle'
 import SignInWithEmail from './SignInWithEmail'
-
+import { firebaseStart } from '../dbInit.js'
 import SignUp from './SignUp'
 
+export default React.createClass({
+    componentDidMount: function(){
+        firebaseStart()
+    },
+    render: function() {
+        return (
+            <div>
+                <div id='firebaseui-auth-container'></div>
+            </div>
+        )
+    }
+})
 
-export default (props) => {
-    let email = null
+ /*let email = null
     let password = null
 
   switch (props.auth.status) {
@@ -34,13 +45,11 @@ export default (props) => {
     )
     default: return (
       <div>
+
           {!props.auth.uid && <SignInWithGoogle signInWithGoogle={props.signInWithGoogle} />}
           {!props.auth.uid && <SignInWithEmail signInWithEmail={props.signInWithEmail} />}
           {!props.auth.uid && <SignUp signUp={props.signUp} />}
       </div>
     )
   }
-}
-// render() {
-//   return this.props
-// }
+}*/
