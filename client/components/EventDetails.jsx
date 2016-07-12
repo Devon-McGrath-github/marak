@@ -16,6 +16,7 @@ export default React.createClass({
     let currentUserId = auth.uid
     let attendeeIds = activity.attendeeIds
     let activityCreatorId = activity.activityCreatorId
+    let showDelete = currentUserId === activityCreatorId
 
     if (activity) {
       return (
@@ -34,7 +35,7 @@ export default React.createClass({
             { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
           </button>
 
-          <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link>
+          {showDelete ? <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
         </div>
       )
     } else {
