@@ -22,7 +22,8 @@
     "FB:init": "firebase init",
     "deploy": "firebase deploy",
     "open": "firebase open",
-    "FB:serve": "firebase serve"
+    "FB:serve": "firebase serve",
+    "logout": "firebase logout"
 
 
   },
