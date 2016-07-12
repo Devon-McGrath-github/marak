@@ -6,12 +6,22 @@ export const IMAGE_UPLOAD_ERROR = 'IMAGE_UPLOAD_ERROR'
 export const uploadImageRequest = (targetFile) => {
   return (dispatch) => {
     dispatch(imageUploadInProgress())
-    dispatch(uploadImages(targetFile, (url) => {
+    uploadImages(targetFile, (url) => {
       dispatch({ type: 'redux-form/BLUR', field: "images", value: url, touch: true, form: 'createActivityForm'})
       dispatch(imageUploadSuccess())
-    }))
+    })
   }
 }
+
+// export const getActivities = () => {
+//   return (dispatch) => {
+//     getActivitiesFromDB((activities) => {
+//       dispatch(receiveActivities(activities))
+//     })
+//   }
+// }
+
+
 
 export const imageUploadInProgress = () => {
   return {

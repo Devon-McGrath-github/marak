@@ -4,10 +4,32 @@ import { reduxForm } from 'redux-form'
 import { uploadImages } from '../storageInit'
 
 class CreateActivity extends Component {
+    constructor(props) {
+        super(props)
+        this.getPhotoStatus = this.getPhotoStatus.bind(this)
+    }
+
+    getPhotoStatus(inProgress) {
+        switch (inProgress) {
+            case 'in progress':
+                 return (<div>Loading Photo...</div>)
+
+            case 'success':
+                return (<div>Success!</div>)
+            case 'nothing found':
+                return (<div>Nothing found</div>)
+            default:
+                 return (<div></div>)
+          }
+    }
 
   render() {
     const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, images}, handleSubmit} = this.props
     let imageUrl = null
+
+    let inProgress = this.props.imageUpload
+    let uploadProgress = null
+
     return (
       <div>
         <Link to='/'><h1>Home</h1></Link>
@@ -53,7 +75,9 @@ class CreateActivity extends Component {
                           this.props.uploadImageRequest(e.target.files)
                       }
                   } multiple />
-          </div>
+              {this.getPhotoStatus(inProgress)}
+
+        </div>
 
           <button type="submit">Submit</button>
         </form>

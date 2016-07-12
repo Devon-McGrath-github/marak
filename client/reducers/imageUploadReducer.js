@@ -1,12 +1,11 @@
 import * as actions from '../actions/uploadImagesActions'
 
 const reducer = (state = '', action) => {
-  console.log(action)
   switch (action.type) {
-    case actions.UPLOAD_IMAGE_PROGRESS:
+    case actions.IMAGE_UPLOAD_PROGRESS:
       console.log('in progress')
       return 'in progress'
-    case actions.UPLOAD_IMAGE_SUCCESS:
+    case actions.IMAGE_UPLOAD_SUCCESS:
       console.log('success')
       return 'success'
     default:
