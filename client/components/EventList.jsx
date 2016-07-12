@@ -4,22 +4,30 @@ import { Link } from 'react-router'
 
 export default (props) => {
   const activities = R.values(props.activities)
-
   return (
     <div>
-    <Link to='/'><h1>Home</h1></Link>
-    <h1>Events List</h1>
-      {activities.map(function (activity) {
-          return (
-            <div key={activity.activityId}>
-            <p>Title: {activity.title}</p>
-            <p>subtitle: {activity.subtitle}</p>
-            <p>Date: {activity.activityStart}</p>
-            <Link to={`/event-details/${activity.activityId}`}><button>View Details</button></Link>
-            </div>
-          )
-          })
-        }
-  </div>
-)
-}
+    <div className="banner">
+      <div className="banner-title">Events</div>
+    </div>
+      <div className="divider"></div>
+      <div className="ui container">
+          {activities.map(function (activity) {
+            return (<Link to={`/event-details/${activity.activityId}`}><a><div className="ui gaps items" key={activity.id}>
+              <div key={activity.id} className="item">
+                <div className="image">
+                  <img src={activity.posterImage}/>
+                </div>
+                <div className="content">
+                  <div className="header">{activity.title}</div>
+                  <div className="meta">
+                    <span className="price">{activity.activityStart}</span>
+                    <span className="stay">{activity.subtitle}</span>
+                  <div className="description"><p>{activity.description}</p></div>
+                  </div>
+                </div>
+              </div>
+              </div></a></Link>
+            )})}
+      </div>
+    </div>
+  )}
