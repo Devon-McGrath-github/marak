@@ -24,11 +24,13 @@ class CreateActivity extends Component {
     }
 
   render() {
-    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, images}, handleSubmit} = this.props
+
+    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, attendeeIds, images}, handleSubmit} = this.props
     let imageUrl = null
 
     let inProgress = this.props.imageUpload
     let uploadProgress = null
+
 
     return (
       <div>
@@ -89,7 +91,8 @@ class CreateActivity extends Component {
 
 CreateActivity = reduxForm({
   form: 'createActivityForm',
-  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid', 'images'], initialValues: {uid: '1'}
+  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid','attendeeIds', 'images'], initialValues: {uid: '1'}
+
 })(CreateActivity)
 
 export default CreateActivity

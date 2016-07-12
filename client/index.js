@@ -53,7 +53,4 @@ document.addEventListener('DOMContentLoaded', () => {
 )
 store.dispatch(listenToAuth())
 
-
-
-
 })

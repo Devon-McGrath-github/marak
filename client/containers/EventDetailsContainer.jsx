@@ -4,6 +4,8 @@ import R from 'ramda'
 import EventDetails from '../components/EventDetails'
 import { toggleRSVP } from '../actions/rsvpActions'
 import { deleteActivityRequest } from '../actions/deleteActivityAction'
+import hasRSVPed from '../utilities/hasRSVPed'
+
 
 const mapStateToProps = (state, ownProps) => {
   const auth = state.auth
@@ -21,8 +23,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleRSVP: (attendeeId, activityId) => dispatch(toggleRSVP(attendeeId, activityId)),
-    deleteActivity: (currentUserId, activityCreatorId, activityId) => dispatch(deleteActivityRequest(currentUserId, activityCreatorId, activityId))
+    toggleRSVP: (attendeeId, activityId, attendeeIds) => dispatch(toggleRSVP(attendeeId, activityId, attendeeIds)),
+    deleteActivity: (currentUserId, activityCreatorId, activityId) => dispatch(deleteActivityRequest(currentUserId, activityCreatorId, activityId)),
+    hasRSVPed
   }
 }
 

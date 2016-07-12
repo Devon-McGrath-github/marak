@@ -10,7 +10,7 @@ import { uploadImageRequest } from '../actions/uploadImagesActions'
 
 const mapStateToProps = (state) => {
   return {
-     initialValues: {uid: state.auth.uid},
+     initialValues: {uid: state.auth.uid, attendeeIds: [state.auth.uid]},
      imageUpload: state.imageUpload
   }
 }
