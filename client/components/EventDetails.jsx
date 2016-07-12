@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import R from 'ramda'
+import ReactDisqusThread from 'react-disqus-thread'
 
 import hasRSVPed from '../utilities/hasRSVPed'
 
@@ -30,12 +31,20 @@ export default React.createClass({
           <p>Location: {activity.formattedAddress}</p>
           <p>Tasks: {activity.tasks}</p>
           <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
+          <img src={activity.images}/>
 
           <button onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
             { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
           </button>
 
           {showDelete ? <Link to='event-list'><button onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
+          <ReactDisqusThread
+            shortname='unityhivekarma'
+            identifier={activity.activityId}
+            title={activity.title}
+            url="https://test-9eee4.firebaseapp.com"
+            category_id="123456"
+            onNewComment={this.props.handleNewComment}/>
         </div>
       )
     } else {
