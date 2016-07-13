@@ -62,7 +62,6 @@ export default React.createClass({
                     <br/>{this.props.length - 1 } / {activity.numberRequired} </p>
                     <div className="ui hidden divider">
                       <button className="ui yellow button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
-
                       { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
                       </button>
                     </div>

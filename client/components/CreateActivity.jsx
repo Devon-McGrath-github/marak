@@ -74,6 +74,7 @@ return (
           <div>
             <label>Date: </label>
               <DatePicker
+              dateFormat="DD/MM/YYYY"
               selected={this.state.startDate} onChange={this.handleChange} />
           </div>
           <div>
