@@ -2,11 +2,19 @@ import React, { Component, PropTypes } from 'react'
 import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
 import { uploadImages } from '../storageInit'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+
+// require('react-datepicker/dist/react-datepicker.css');
 
 class CreateActivity extends Component {
     constructor(props) {
         super(props)
         this.getPhotoStatus = this.getPhotoStatus.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.state = {
+          startDate: moment()
+        }
     }
 
     getPhotoStatus(inProgress) {
@@ -22,6 +30,14 @@ class CreateActivity extends Component {
                  return (<div></div>)
           }
     }
+
+    handleChange(date) {
+      this.props.updateDate(date._d)
+      this.setState({
+        startDate: date
+      })
+    }
+
 
   render() {
 
@@ -52,7 +68,9 @@ class CreateActivity extends Component {
           </div>
           <div>
             <label>Activity Start: </label>
-            <input type="text" placeholder="activity start" {...activityStart}/>
+              <DatePicker
+              selected={this.state.startDate} onChange={this.handleChange}
+               />
           </div>
           <div>
             <label>Activity End: </label>

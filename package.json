@@ -24,8 +24,6 @@
     "open": "firebase open",
     "FB:serve": "firebase serve",
     "logout": "firebase logout"
-
-
   },
   "ava": {
     "failfast": true,
@@ -74,9 +72,11 @@
     "firebase": "^3.1.0",
     "firebase-tools": "^3.0.4",
     "knex": "^0.11.7",
+    "moment": "^2.14.1",
     "pg": "^6.0.1",
     "ramda": "^0.21.0",
     "react": "^15.2.0",
+    "react-datepicker": "^0.28.1",
     "react-dom": "^15.2.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.5.2",
