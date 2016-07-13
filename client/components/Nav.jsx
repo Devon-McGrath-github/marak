@@ -14,7 +14,7 @@ export default (props) => {
         <div className="right menu">
           <div className="item">
             <div className="ui icon input">
-              <input type="text" placeholder="Search..."/>
+              <input type="text" placeholder="Search...Inside Yourself"/>
               <i className="search link icon"></i>
             </div>
           </div>
