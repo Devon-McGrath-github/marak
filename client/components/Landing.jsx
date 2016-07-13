@@ -8,6 +8,7 @@ export default (props) => {
   let signedIn = props.auth.uid
   return (
   <div>
+
     <Nav />
     <div className="hero-image">
     <div className="hero-header">KARMA HIVE</div>
@@ -23,6 +24,7 @@ export default (props) => {
   </div>
 )
 }
+
 {/*DO NOT DELETE ****************************
 <Auth />
  <div id='reducer-test-div'></div>

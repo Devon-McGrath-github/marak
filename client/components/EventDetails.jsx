@@ -33,7 +33,7 @@ export default React.createClass({
           <Nav />
           {/* PHOTO CARD */}
             <div className="ui divided grid">
-              <div className="four wide column red">
+              <div className="four wide column">
                 <div className="ui image">
                   <a className="poster-image">
                     <img className="ui image" src={activity.images}/>
@@ -43,7 +43,7 @@ export default React.createClass({
 
               {/* TITLE HEADER BOX */}
               <div id="desc-column" className="twelve wide column">
-                <h1 className="ui center aligned">{activity.title}</h1>
+                <h1 className="event-details-title ui center aligned">{activity.title}</h1>
                 <h2 className="subtitle-header">{activity.subtitle}</h2>
               </div>
 
@@ -62,17 +62,17 @@ export default React.createClass({
                       { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
                     </button>
                       {showDelete ? <Link to='event-list'><button className="ui positive basic button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
-                      <ReactDisqusThread
-                        shortname='unityhivekarma'
-                        identifier={activity.activityId}
-                        title={activity.title}
-                        url="https://test-9eee4.firebaseapp.com/" />
-                  </div>
+                    </div>
                 </div>
 
                 {/* EVENT Description BOX */}
                 <div className="desc-box twelve wide column olive">
-                  <h1>Description: {activity.description}</h1>
+                  <h3>Description: <br/> {activity.description}</h3>
+                  <ReactDisqusThread
+                    shortname='unityhivekarma'
+                    identifier={activity.activityId}
+                    title={activity.title}
+                    url="https://test-9eee4.firebaseapp.com/" />
                 </div>
             </div>
         </div>

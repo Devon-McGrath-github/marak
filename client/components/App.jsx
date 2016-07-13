@@ -3,11 +3,11 @@ import { Link } from 'react-router'
 
 export default React.createClass({
   render () {
-
     if (this.props.auth.status === 'AUTH_LOGGED_IN') {
         return (
             <div>
                 <div>
+                    <h5>This is the nav bar</h5>
                     <p>Logged in as {this.props.auth.username}</p>
                     <button onClick={this.props.logoutUser}>Sign Out</button>
                 </div>
@@ -20,16 +20,22 @@ export default React.createClass({
         return (
             <div>
               <div>
+<<<<<<< HEAD
 
                   {/*<Link to='auth'><button>Sign In</button></Link>
                   <a href="/login.html">Sign In</a>
                   <Link to='sign-up'><button>Sign Up</button></Link>*/}
 
                   <h5>This is the nav bar</h5>
+=======
+>>>>>>> 5890044f019659cfa8e71183c1bf7283e5a5365c
                   {/*<Link to='auth'><button>Sign In</button></Link>*/}
-                  <a href="/login.html"><button>Sign In</button></a>
+                  <a href="/login.html">Sign In</a>
                   <Link to='sign-up'><button>Sign Up</button></Link>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5890044f019659cfa8e71183c1bf7283e5a5365c
               </div>
               <div>
                   {this.props.children}
