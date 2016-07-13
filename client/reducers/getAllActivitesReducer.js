@@ -5,7 +5,6 @@ import { DELETE_ACTIVITY } from '../actions/deleteActivityAction'
 import { ADD_RSVP, CANCEL_RSVP } from '../actions/rsvpActions'
 import { RECEIVE_ACTIVITIES } from '../actions/getAllActivitiesAction'
 
-
 const reducer = (state = {} , action) => {
   switch (action.type) {
     case ADD_RSVP:
@@ -22,7 +21,6 @@ const reducer = (state = {} , action) => {
       console.log('CANCEL_RSVP in getAllActivitiesReducer')
       // need to add client side state update. Will add instant
       return state
-
 
     case RECEIVE_ACTIVITIES:
       return action.activities;

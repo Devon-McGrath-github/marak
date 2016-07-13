@@ -1,3 +1,4 @@
+
 html {
   box-sizing: border-box;
 }
@@ -5,12 +6,6 @@ html {
 .ui.grid {
   padding: 0;
 }
-
-.title {
-
-}
-
-/* EVENT LIST COMPONENT */
 
 .banner {
   height: 300px;

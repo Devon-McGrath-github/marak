@@ -24,6 +24,8 @@ export default (props) => {
                   <div className="header"><p>{activity.title}</p></div>
                   <div className="meta">
                     <span className="price"><p>{activity.activityStart}</p></span>
+                    <span
+                    className="price"><p>{activity.activityEnd}</p></span>
                     <span className="stay"><p>{activity.subtitle}</p></span>
                   <div className="description"><p>{activity.description}</p></div>
                   </div>

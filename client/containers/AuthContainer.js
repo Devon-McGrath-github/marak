@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import Auth from '../components/Auth'
 import { signInWithGoogle, signInWithEmail, signUp, logoutUser } from '../actions/authAction'
 
-
 const mapStateToProps = (state) => {
   return {
     auth: state.auth

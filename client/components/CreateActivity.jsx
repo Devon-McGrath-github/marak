@@ -3,12 +3,21 @@ import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
 import Nav from '../containers/NavContainer'
 import { uploadImages } from '../storageInit'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
 
+// require('react-datepicker/dist/react-datepicker.css');
 class CreateActivity extends Component {
     constructor(props) {
         super(props)
         this.getPhotoStatus = this.getPhotoStatus.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.state = {
+          startDate: moment()
+        }
+        this.props.updateDate(moment().format("L"))
     }
+
 
     getPhotoStatus(inProgress) {
         switch (inProgress) {
@@ -23,6 +32,14 @@ class CreateActivity extends Component {
                  return (<div></div>)
           }
     }
+
+    handleChange(date) {
+      this.props.updateDate(date.format("L"))
+      this.setState({
+        startDate: date
+      })
+    }
+
 
   render() {
     const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, attendeeIds, images}, handleSubmit} = this.props
@@ -52,12 +69,13 @@ return (
             <textarea type="text" placeholder="description" {...description}></textarea>
           </div>
           <div>
-            <label>Activity Start: </label>
-            <input type="text" placeholder="activity start" {...activityStart}/>
+            <label>Date: </label>
+              <DatePicker
+              selected={this.state.startDate} onChange={this.handleChange} />
           </div>
           <div>
-            <label>Activity End: </label>
-            <input type="text" placeholder="activity end" {...activityEnd}/>
+            <label>Event Time: </label>
+            <input type="time" placeholder="activity end" {...activityEnd}/>
           </div>
           <div>
             <label>Address: </label>
@@ -65,7 +83,7 @@ return (
           </div>
           <div>
             <label>Number of Volunteers Requested: </label>
-            <input type="text" placeholder="number" {...numberRequired}/>
+            <input type="number" placeholder="number" {...numberRequired}/>
           </div>
           <div>
             <label>Tasks: </label>

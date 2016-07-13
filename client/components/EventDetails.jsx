@@ -53,9 +53,11 @@ export default React.createClass({
                   <div className="content">
                       <a className="header">{activity.title}</a>
                       <p>Location: {activity.formattedAddress}</p>
+                        <p>Date: {activity.activityStart}</p>
+                        <p>Time: {activity.activityEnd}</p>
                       <p>Tasks: {activity.tasks}</p>
                     <div className="meta">
-                      <span className="date">{activity.activityStart && activity.activityEnd}</span>
+                      <span className="date">{activity.activityStart}</span>
                         <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
                     </div>
                     <button className="ui negative button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
