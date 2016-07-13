@@ -12,10 +12,12 @@ export default (props) => {
       {activities.map(function (activity) {
           return (
             <div key={activity.activityId}>
+              <img src={activity.images}/>
             <p>Title: {activity.title}</p>
             <p>subtitle: {activity.subtitle}</p>
             <p>Date: {activity.activityStart}</p>
             <Link to={`/event-details/${activity.activityId}`}><button>View Details</button></Link>
+
             </div>
           )
           })
