@@ -7,7 +7,6 @@ import getAttendeeKey from './utilities/getAttendeeKey'
 
 export const getActivitiesFromDB = (callback) => {
   db.ref('activities/').on('value', (snapshot) => {
-    console.log('logging getActivities',snapshot.val());
     callback(R.values(snapshot.val()))
   })
 }

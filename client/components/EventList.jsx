@@ -20,7 +20,7 @@ export default (props) => {
                 <div className="image">
                   <img src={activity.images}/>
                 </div>
-                <div className="content">
+                <div className="event-list-content content">
                   <div className="header"><p>{activity.title}</p></div>
                   <div className="meta">
                     <span className="price"><p>{activity.activityStart}</p></span>
