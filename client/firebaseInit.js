@@ -4,12 +4,13 @@ import R from 'ramda'
 import { db, auth } from './dbInit'
 import getAttendeeKey from './utilities/getAttendeeKey'
 
+
 export const getActivitiesFromDB = (callback) => {
- db.ref('activities/')
-  .on('value', (snapshot) => {
+  db.ref('activities/').on('value', (snapshot) => {
     callback(R.values(snapshot.val()))
   })
 }
+
 
 export const writeNewActivityToDB = (payload) => {
   const newActivityKey = firebase.database().ref().child('activities/').push().key

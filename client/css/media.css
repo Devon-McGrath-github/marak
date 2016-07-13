@@ -1,3 +1,9 @@
+@media ( max-width: 885px ) {
+  .hero-button {
+    width: 80%;
+  }
+}
+
 @media ( max-width: 765px ) {
   .events-list-text {
     font-size: 1rem;
@@ -7,6 +13,18 @@
   }
   .ui.inverted.black.button {
     width: 100%;
+  }
+}
+
+@media ( max-width: 650px ) {
+  .banner-title {
+    font-size: 3em;
+  }
+  .subtitle-header {
+    font-size: 1.5em;
+  }
+  .description-event {
+    font-size: 1.15rem;
   }
 }
 
@@ -52,16 +70,4 @@
   .hero-h1 {
     font-size: 9rem;
   }
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -27,56 +27,75 @@ export default React.createClass({
     let activityCreatorId = activity.activityCreatorId
     let showDelete = currentUserId === activityCreatorId
 
+    let bgActivityImage = activity.images
+    let bgBannerStyle = {
+      backgroundImage: 'url(' + bgActivityImage + ')',
+      backgroundColor: 'transparent',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }
+
     if (activity) {
       return (
         <div>
           <Nav />
-          {/* PHOTO CARD */}
-            <div className="ui divided grid">
-              <div className="four wide column">
-                <div className="ui image">
-                  <a className="poster-image">
-                    <img className="ui image" src={activity.images}/>
-                  </a>
-                </div>
+
+          <div className="banner-event-details" style={bgBannerStyle}>
+            <div className="banner-title">{activity.title}</div>
+            <h2 className="subtitle-header">{activity.subtitle}</h2>
+          </div>
+
+          <div className="ui hidden divider"></div>
+
+          <div className="ui container boom">
+            <div className="ui stackable four column grid">
+              {/* TITLE HEADER BOX */}
+              <div id="rsvp" className="event-deets four wide column">
+                <h1>Event Details</h1>
+                <div className="content">
+                    <p><b>Location: </b>{activity.formattedAddress}</p>
+                    <p><b>Tasks: </b>{activity.tasks}</p>
+                    <p><b>Date: </b>{activity.activityStart && activity.activityEnd}</p>
+                    <p><b>Time: </b>{activity.activityEnd}</p>
+                    <p><b>Number people attending: </b>
+                    <br/>{this.props.length - 1 } / {activity.numberRequired} </p>
+                    <div className="ui hidden divider">
+                      <button className="ui yellow button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
+                      { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
+                      </button>
+                    </div>
+                  </div>
               </div>
 
-              {/* TITLE HEADER BOX */}
-              <div id="desc-column" className="twelve wide column">
-                <h1 className="event-details-title ui center aligned">{activity.title}</h1>
-                <h2 className="subtitle-header">{activity.subtitle}</h2>
+              <div id="descript" className="twelve wide column">
+                <div className="desc-box twelve wide column">
+                  <h1 className="content description-event">Description </h1><p> {activity.description}</p>
+                </div>
               </div>
 
                 {/* EVENT DETAILS BOX */}
-                <div className="event-deets four wide column">
-                  <h1>Event Details</h1>
-                  <div className="content">
-                      <a className="header">{activity.title}</a>
-                      <p>Location: {activity.formattedAddress}</p>
-                        <p>Date: {activity.activityStart}</p>
-                        <p>Time: {activity.activityEnd}</p>
-                      <p>Tasks: {activity.tasks}</p>
-                    <div className="meta">
-                      <span className="date">{activity.activityStart}</span>
-                        <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
-                    </div>
-                    <button className="ui negative button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
-                      { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
-                    </button>
-                      {showDelete ? <Link to='event-list'><button className="ui positive basic button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
-                    </div>
-                </div>
+
 
                 {/* EVENT Description BOX */}
-                <div className="desc-box twelve wide column olive">
-                  <h3>Description: <br/> {activity.description}</h3>
+
+                <div className="disqus-box sixteen wide column">
+                  <div id="disqus">
                   <ReactDisqusThread
                     shortname='unityhivekarma'
                     identifier={activity.activityId}
                     title={activity.title}
                     url="https://test-9eee4.firebaseapp.com/" />
+                  </div>
+                </div>
+
+                <div className="sixteen wide column">
+
+                {showDelete ? <Link to='event-list'><button className="ui red button delete-button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
+
                 </div>
             </div>
+          </div>
         </div>
       )
     } else {
