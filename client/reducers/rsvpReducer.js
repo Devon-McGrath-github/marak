@@ -1,12 +1,15 @@
-import * as actions from '../actions/rsvpActions'
+import R from 'ramda'
 
-const rsvp = (state = [], action) => {
+import * as actions from '../actions/rsvpActions'
+import hasRSVPed from '../utilities/hasRSVPed'
+
+export default (state = {}, action) => {
   let attendeeId = action.attendeeId
-  if (state.includes(attendeeId)) {
-    return state.filter(id => attendeeId !== id)
+  if (hasRSVPed(state, attendeeId)) {
+    return R.pickBy((val) => {
+      return val !== attendeeId
+    }, state)
   } else {
-    return state.concat([attendeeId])
+    return R.merge(state, {'temp': attendeeId})
   }
 }
-
-export default rsvp

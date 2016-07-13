@@ -2,64 +2,95 @@ import React, { Component, PropTypes } from 'react'
 import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
 import Nav from './Nav'
+import { uploadImages } from '../storageInit'
 
 class CreateActivity extends Component {
+    constructor(props) {
+        super(props)
+        this.getPhotoStatus = this.getPhotoStatus.bind(this)
+    }
+
+    getPhotoStatus(inProgress) {
+        switch (inProgress) {
+            case 'in progress':
+                 return (<div>Loading Photo...</div>)
+
+            case 'success':
+                return (<div>Success!</div>)
+            case 'nothing found':
+                return (<div>Nothing found</div>)
+            default:
+                 return (<div></div>)
+          }
+    }
 
   render() {
-    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid}, handleSubmit} = this.props
-    uid.value=this.props.userId
-    return (
-      <div>
-        <Nav />
-        <div className="banner banner-create">
-          <div className="banner-title">Create an Event</div>
-        </div>
-          <form className="ui form container" onSubmit={() => {
-              handleSubmit()
-              hashHistory.push('event-list')}}>
-              <h2 className="ui dividing header">Create An Event</h2>
-            <div className="field">
-              <label>Title: </label>
-              <input type="text" placeholder="title" {...title}/>
-            </div>
-            <div>
-              <label>Subtitle: </label>
-              <input type="text" placeholder="subtitle" {...subtitle}/>
-            </div>
-            <div>
-              <label>Description: </label>
-              <textarea type="text" placeholder="description" {...description}></textarea>
-            </div>
-            <div>
-              <label>Activity Start: </label>
-              <input type="text" placeholder="activity start" {...activityStart}/>
-            </div>
-            <div>
-              <label>Activity End: </label>
-              <input type="text" placeholder="activity end" {...activityEnd}/>
-            </div>
-            <div>
-              <label>Address: </label>
-              <input type="text" placeholder="address" {...formattedAddress}/>
-            </div>
-            <div>
-              <label>Number of Volunteers Requested: </label>
-              <input type="text" placeholder="number" {...numberRequired}/>
-            </div>
-            <div>
-              <label>Tasks: </label>
-              <input type="text" placeholder="tasks" {...tasks}/>
-            </div>
-            <button className="ui inverted red button"type="submit">Submit</button>
-          </form>
+    const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, attendeeIds, images}, handleSubmit} = this.props
+    let imageUrl = null
+    let inProgress = this.props.imageUpload
+    let uploadProgress = null
+
+return (
+  <div>
+      <Nav />
+      <div className="banner banner-create">
+        <div className="banner-title">Create Your Event</div>
       </div>
+        <form className="ui form container" onSubmit={() => {
+            handleSubmit()
+            hashHistory.push('event-list')}}>
+          <div>
+            <label>Title: </label>
+            <input type="text" placeholder="title" {...title}/>
+          </div>
+          <div>
+            <label>Subtitle: </label>
+            <input type="text" placeholder="subtitle" {...subtitle}/>
+          </div>
+          <div>
+            <label>Description: </label>
+            <textarea type="text" placeholder="description" {...description}></textarea>
+          </div>
+          <div>
+            <label>Activity Start: </label>
+            <input type="text" placeholder="activity start" {...activityStart}/>
+          </div>
+          <div>
+            <label>Activity End: </label>
+            <input type="text" placeholder="activity end" {...activityEnd}/>
+          </div>
+          <div>
+            <label>Address: </label>
+            <input type="text" placeholder="address" {...formattedAddress}/>
+          </div>
+          <div>
+            <label>Number of Volunteers Requested: </label>
+            <input type="text" placeholder="number" {...numberRequired}/>
+          </div>
+          <div>
+            <label>Tasks: </label>
+            <input type="text" placeholder="tasks" {...tasks}/>
+          </div>
+          <div>
+              <label>Images: </label>
+              <input type="file" onChange={(e) => {
+                          e.preventDefault()
+                          this.props.uploadImageRequest(e.target.files)
+                      }
+                  } multiple />
+              {this.getPhotoStatus(inProgress)}
+          </div>
+          <button className="ui inverted red button" type="submit">Submit</button>
+        </form>
+    </div>
     )
   }
 }
 
 CreateActivity = reduxForm({
   form: 'createActivityForm',
-  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid'], initialValues: {uid: '1'}
+  fields: ['title', 'subtitle','description', 'activityStart', 'activityEnd', 'formattedAddress', 'numberRequired', 'tasks', 'uid','attendeeIds', 'images'], initialValues: {uid: '1'}
+
 })(CreateActivity)
 
 export default CreateActivity

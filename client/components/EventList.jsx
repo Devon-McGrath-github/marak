@@ -17,7 +17,7 @@ export default (props) => {
             return (<Link to={`/event-details/${activity.activityId}`}><a><div className="ui gaps items" key={activity.id}>
               <div key={activity.id} className="item">
                 <div className="image">
-                  <img src={activity.posterImage}/>
+                  <img src={activity.images}/>
                 </div>
                 <div className="content">
                   <div className="header"><p>{activity.title}</p></div>
