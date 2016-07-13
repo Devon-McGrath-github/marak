@@ -32,13 +32,10 @@ export default React.createClass({
         <div>
           <Nav />
           {/* PHOTO CARD */}
+          <div className="ui container">
             <div className="ui divided grid">
               <div className="four wide column">
-                <div className="ui image">
-                  <a className="poster-image">
-                    <img className="ui image" src={activity.images}/>
-                  </a>
-                </div>
+                  <img className="ui huge image" src={activity.images}/>
               </div>
 
               {/* TITLE HEADER BOX */}
@@ -51,30 +48,25 @@ export default React.createClass({
                 <div className="event-deets four wide column">
                   <h1>Event Details</h1>
                   <div className="content">
-                      <a className="header">{activity.title}</a>
                       <p>Location: {activity.formattedAddress}</p>
                       <p>Tasks: {activity.tasks}</p>
-                    <div className="meta">
-                      <span className="date">{activity.activityStart && activity.activityEnd}</span>
-                        <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
-                    </div>
-                    <button className="ui negative button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
-                      { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
-                    </button>
-                      {showDelete ? <Link to='event-list'><button className="ui positive basic button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
+                      <p>Start Date: {activity.activityStart && activity.activityEnd}</p>
+                      <p>Time: {activity.activityEnd}</p>
+                      <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
+                      <div className="ui hidden divider">
+                        <button className="ui negative button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
+                        { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
+                        </button>
+                        {showDelete ? <Link to='event-list'><button className="ui red basic button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
+                      </div>
                     </div>
                 </div>
 
                 {/* EVENT Description BOX */}
-                <div className="desc-box twelve wide column olive">
+                <div className="desc-box twelve wide column">
                   <h3>Description: <br/> {activity.description}</h3>
                 </div>
-
-                <div className="four wide column teal">
-                  <h1>Empty container</h1>
-                </div>
-
-                <div className="twelve wide column purple">
+                <div className="disqus-box sixteen wide column">
                   <div id="disqus">
                   <ReactDisqusThread
                     shortname='unityhivekarma'
@@ -84,6 +76,7 @@ export default React.createClass({
                   </div>
                 </div>
             </div>
+        </div>
         </div>
       )
     } else {

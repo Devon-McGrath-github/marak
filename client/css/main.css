@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 .ui.grid {
@@ -88,16 +89,19 @@ html {
   font-size: 20%;
 }
 
-.events-list-text, .create-event-text {
-  font-size: 6rem;
-  opacity: 1;
+.hero-buttons {
+  padding-left: 50%;
 }
 
 /*  EVENT DETAILS STYLES */
 
 
 #desc-column {
-  background-color: rgb(255, 172, 170);
+  background-image: url(./images/hero-forest.jpg);
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
  .event-details-title {
@@ -128,7 +132,6 @@ p {
 }
 
 .poster-image {
-  background-image: url(./images/building.jpg);
   background-color: transparent;
   background-size: cover;
   background-position: center center;
@@ -139,10 +142,14 @@ p {
   margin-top: 0em;
 }
 
-.four.wide.column {
-  margin: 0em;
-}
+/*.ui.grid > .column:not(.row) {
+  padding: 0rem;
+}*/
 
+
+.event-deets, .desc-box, .disqus-box {
+  border: 1px solid gray;
+}
 
 /*  DISQUS */
 
