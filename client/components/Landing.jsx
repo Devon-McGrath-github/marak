@@ -14,7 +14,7 @@ export default (props) => {
             <h1 className="hero-h1">MARAK</h1>
           </div>
           <div className="hero-description">
-              <h3 className="hero-h3">Connect with others </h3>
+              <h3 className="hero-h3"><span className="hero-desc-text">Bacon ipsum dolor amet shankle turducken jowl turkey andouille. Biltong cow tongue porchetta chuck leberkas, brisket sausage pastrami meatball shank. Tail pork chop pastrami porchetta. Tongue ball tip swine spare ribs fatback short loin. Salami sausage jowl corned beef rump brisket boudin biltong picanha pork loin flank doner ham filet mignon turducken. </span></h3>
           </div>
           <div className="hero-button">
             <Link to='event-list'><button className="ui inverted black button"><span className="events-list-text">Events Near Me</span></button></Link>
