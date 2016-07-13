@@ -68,11 +68,20 @@ export default React.createClass({
                 {/* EVENT Description BOX */}
                 <div className="desc-box twelve wide column olive">
                   <h3>Description: <br/> {activity.description}</h3>
+                </div>
+
+                <div className="four wide column teal">
+                  <h1>Empty container</h1>
+                </div>
+
+                <div className="twelve wide column purple">
+                  <div id="disqus">
                   <ReactDisqusThread
                     shortname='unityhivekarma'
                     identifier={activity.activityId}
                     title={activity.title}
                     url="https://test-9eee4.firebaseapp.com/" />
+                  </div>
                 </div>
             </div>
         </div>
