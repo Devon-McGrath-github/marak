@@ -18,6 +18,7 @@ export default (props) => {
               <i className="search link icon"></i>
             </div>
           </div>
+            {signedIn ? <div>p</div> : ''}
             {signedIn ?
             <button className="ui item" onClick={props.logoutUser}>Logout</button> :
             <a href="/login.html" className="ui item">Sign In / Sign up</a>}
