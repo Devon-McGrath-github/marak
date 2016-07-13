@@ -23,8 +23,8 @@ export default (props) => {
                   bacon cupim cow.</h3>
           </div>
           <div className="hero-button">
-            <Link to='event-list'><button className="ui olive button"><span className="events-list-text">Events Near Me</span></button></Link>
-          </div>
+                      <Link to='event-list'><button className="ui inverted black button"><span className="events-list-text">Events Near Me</span></button></Link>
+                    </div>
         </div>
   </div>
 )
