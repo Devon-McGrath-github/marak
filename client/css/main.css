@@ -120,14 +120,9 @@ html, #app, #root-div, .hero-image{
   margin-right: auto;
 }
 
-<<<<<<< HEAD
 .events-list-text {
   font-size: 2rem;
   opacity: 1;
-=======
-.hero-buttons {
-  padding-left: 50%;
->>>>>>> 683f20c135f9812a8e8dda3439aa5728c0521a73
 }
 
 /*  EVENT DETAILS STYLES */
