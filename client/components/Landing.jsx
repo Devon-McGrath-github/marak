@@ -11,7 +11,7 @@ export default (props) => {
     <Nav />
         <div className="hero-container">
           <div className="hero-header">
-            <h1 className="hero-h1">KARMA FARMER</h1>
+            <h1 className="hero-h1">MAREK</h1>
           </div>
           <div className="hero-description">
               <h3 className="hero-h3">Bacon ipsum dolor amet
