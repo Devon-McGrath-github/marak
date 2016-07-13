@@ -6,7 +6,6 @@ import DatePicker from 'react-datepicker'
 import moment from 'moment'
 
 // require('react-datepicker/dist/react-datepicker.css');
-
 class CreateActivity extends Component {
     constructor(props) {
         super(props)
@@ -15,7 +14,9 @@ class CreateActivity extends Component {
         this.state = {
           startDate: moment()
         }
+        this.props.updateDate(moment().format("L"))
     }
+
 
     getPhotoStatus(inProgress) {
         switch (inProgress) {
@@ -32,7 +33,7 @@ class CreateActivity extends Component {
     }
 
     handleChange(date) {
-      this.props.updateDate(date._d)
+      this.props.updateDate(date.format("L"))
       this.setState({
         startDate: date
       })
@@ -67,14 +68,13 @@ class CreateActivity extends Component {
             <textarea type="text" placeholder="description" {...description}></textarea>
           </div>
           <div>
-            <label>Activity Start: </label>
+            <label>Date: </label>
               <DatePicker
-              selected={this.state.startDate} onChange={this.handleChange}
-               />
+              selected={this.state.startDate} onChange={this.handleChange} />
           </div>
           <div>
-            <label>Activity End: </label>
-            <input type="text" placeholder="activity end" {...activityEnd}/>
+            <label>Event Time: </label>
+            <input type="time" placeholder="activity end" {...activityEnd}/>
           </div>
           <div>
             <label>Address: </label>
@@ -82,7 +82,7 @@ class CreateActivity extends Component {
           </div>
           <div>
             <label>Number of Volunteers Requested: </label>
-            <input type="text" placeholder="number" {...numberRequired}/>
+            <input type="number" placeholder="number" {...numberRequired}/>
           </div>
           <div>
             <label>Tasks: </label>

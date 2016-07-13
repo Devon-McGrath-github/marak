@@ -9,6 +9,8 @@ export default React.createClass({
   propTypes: {
     activity: React.PropTypes.object
   },
+
+
   render () {
     if (!this.props.activity) {
       return (
@@ -32,7 +34,8 @@ export default React.createClass({
         <h1>Title: {activity.title}</h1>
         <h2>{activity.subtitle}</h2>
         <p>Description: {activity.description}</p>
-        <p>Date: {activity.activityStart && activity.activityEnd}</p>
+        <p>Date: {activity.activityStart}</p>
+        <p>Time: {activity.activityEnd}</p>
         <p>Location: {activity.formattedAddress}</p>
         <p>Tasks: {activity.tasks}</p>
         <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>

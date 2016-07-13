@@ -16,6 +16,7 @@ export default (props) => {
             <p>Title: {activity.title}</p>
             <p>subtitle: {activity.subtitle}</p>
             <p>Date: {activity.activityStart}</p>
+            <p>Time: {activity.activityEnd}</p>
             <Link to={`/event-details/${activity.activityId}`}><button>View Details</button></Link>
 
             </div>
