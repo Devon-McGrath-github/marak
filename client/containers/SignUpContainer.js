@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import SignUp from '../components/SignUp'
 import { signUp } from '../actions/authAction'
 
-
 const mapStateToProps = (state) => {
   return {
     auth: state.auth
@@ -17,6 +16,5 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

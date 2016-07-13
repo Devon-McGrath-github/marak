@@ -18,11 +18,16 @@ export default (props) => {
               <i className="search link icon"></i>
             </div>
           </div>
-            {signedIn ?
-            <button className="ui item" onClick={props.logoutUser}>Logout</button> :
-            <a href="/login.html" className="ui item">Sign In / Sign up</a>}
-          </div>
+        <div>
+          {signedIn ?
+            <div className="ui olive menu hero-nav">
+              <p className="ui item">{ props.auth.username } </p>
+              <button className="ui item" onClick={props.logoutUser}>Logout</button>
+            </div> :
+          <a href="/login.html" className="ui item">Sign In / Sign up</a>}
         </div>
-   </div>
+      </div>
+    </div>
+  </div>
   )
 }

@@ -1,21 +1,26 @@
+
 html {
   box-sizing: border-box;
   font-size: 16px;
+}
+
+html, #app, #root-div, .hero-image{
+  height: 100%;
 }
 
 .ui.grid {
   padding: 0;
 }
 
-.delete-button {
-  float: right;
+.title {
+
 }
 
 /* EVENT LIST COMPONENT */
 
-.banner-event-list {
+.banner {
   height: 300px;
-  background-image: url(./images/clouds.jpg);
+  background-image: url(./images/waterfall.jpeg);
   background-color: transparent;
   background-size: cover;
   background-position: center center;
@@ -64,7 +69,8 @@ html {
 /* Landing Container */
 
 .hero-image {
-  height: 1000px;
+  padding: 0px;
+  height: 100%;
   background-image: url(./images/hero-forest.jpg);
   background-color: transparent;
   background-size: cover;
@@ -72,32 +78,57 @@ html {
   background-repeat: no-repeat;
 }
 
+.hero-opaque-box {
+
+}
+
+.hero-container {
+  background-color: rgba(147, 133, 133,0.5);
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  padding-bottom: 2%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transform: translate (-50%, -50%);
+}
+
 .hero-header {
+  margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+}
+
+.hero-h1 {
   font-size: 10rem;
   font-family: 'Unica One', cursive;
   color: #fff;
-  padding-left: 38%;
-  padding-top: 15%;
+  text-align: center;
 }
 
-.landing-create-event {
-  height: 1000px;
-  opacity: 0;
-  width: 50%;
-  font-size: 20%;
+.hero-description {
+  width: 80%;
+  padding: 2%;
+  background-color: rgba(211, 211, 211, 0.7);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
 }
 
-.landing-list-event {
-  position: absolute;
-  right: 0;
-  height: 1000px;
-  opacity: 0;
-  width: 50%;
-  font-size: 20%;
+.hero-button {
+  height: 10%;
+  opacity: 1;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.hero-buttons {
-  padding-left: 50%;
+.events-list-text {
+  font-size: 2rem;
+  opacity: 1;
 }
 
 /*  EVENT DETAILS STYLES */

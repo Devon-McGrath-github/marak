@@ -35,8 +35,6 @@ export default (state = initialState, action) => {
         uid: null
       };
 
-
-
 		default:
 			return state
 	}

@@ -3,12 +3,21 @@ import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
 import Nav from '../containers/NavContainer'
 import { uploadImages } from '../storageInit'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
 
+// require('react-datepicker/dist/react-datepicker.css');
 class CreateActivity extends Component {
     constructor(props) {
         super(props)
         this.getPhotoStatus = this.getPhotoStatus.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.state = {
+          startDate: moment()
+        }
+        this.props.updateDate(moment().format("L"))
     }
+
 
     getPhotoStatus(inProgress) {
         switch (inProgress) {
@@ -23,6 +32,14 @@ class CreateActivity extends Component {
                  return (<div></div>)
           }
     }
+
+    handleChange(date) {
+      this.props.updateDate(date.format("L"))
+      this.setState({
+        startDate: date
+      })
+    }
+
 
   render() {
     const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, attendeeIds, images}, handleSubmit} = this.props
@@ -54,13 +71,15 @@ return (
             <label>Description: </label>
             <textarea type="text" placeholder="description" {...description}></textarea>
           </div>
-          <div className="field">
-            <label>Event Date: </label>
-            <input type="text" placeholder="activity start" {...activityStart}/>
+          <div>
+            <label>Date: </label>
+              <DatePicker
+              dateFormat="DD/MM/YYYY"
+              selected={this.state.startDate} onChange={this.handleChange} />
           </div>
-          <div className="field">
+          <div>
             <label>Event Time: </label>
-            <input type="text" placeholder="activity end" {...activityEnd}/>
+            <input type="time" placeholder="activity end" {...activityEnd}/>
           </div>
           <div className="field">
             <label>Location: </label>
@@ -68,7 +87,7 @@ return (
           </div>
           <div className="field">
             <label>Number of Volunteers Requested: </label>
-            <input type="text" placeholder="number" {...numberRequired}/>
+            <input type="number" placeholder="number" {...numberRequired}/>
           </div>
           <div className="field">
             <label>Tasks: </label>
