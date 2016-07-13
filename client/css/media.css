@@ -1,12 +1,6 @@
-@media ( max-width: 885px ) {
-  .hero-button {
-    width: 80%;
-  }
-}
-
-@media ( max-width: 765px ) {
-  .events-list-text {
-    font-size: 1rem;
+@media all and ( max-device-width: 885px ) {
+  .hero-h1 {
+    color: red;
   }
   .hero-button {
     width: 80%;
@@ -16,7 +10,16 @@
   }
 }
 
-@media ( max-width: 650px ) {
+@media screen and ( max-device-width: 765px ) {
+  .hero-h3 {
+    font-size: 2rem;
+  }
+  .events-list-text {
+    font-size: 2rem;
+  }
+}
+
+@media screen and ( max-device-width: 650px ) {
   .banner-title {
     font-size: 3em;
   }
@@ -28,7 +31,8 @@
   }
 }
 
-@media ( max-width: 520px ) {
+
+@media screen and ( max-device-width: 520px ) {
   .hero-container {
     width: 100%;
     margin-top: 0;
@@ -52,22 +56,23 @@
   .hero-button {
     margin-bottom: 5%;
     font-size: 6rem;
-    height: 30%;
     width: 100%;
   }
 }
 
-@media ( max-width: 400px ) {
+@media screen and ( max-device-width: 412px ) {
   .hero-container {
     top: 10%;
     left: 0;
     width: 100%;
     padding-bottom: 2%;
-    text-align: center;
     margin-left: 0;
     margin-right: 0;
   }
   .hero-h1 {
-    font-size: 9rem;
+    font-size: 13rem;
+  }
+  .hero-h3 {
+    font-size: 2rem;
   }
 }
