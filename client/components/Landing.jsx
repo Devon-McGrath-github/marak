@@ -11,7 +11,7 @@ export default (props) => {
     <Nav />
         <div className="hero-container">
           <div className="hero-header">
-            <h1 className="hero-h1">KARMA FARMER</h1>
+            <h1 className="hero-h1">MARAK</h1>
           </div>
           <div className="hero-description">
               <h3 className="hero-h3">Bacon ipsum dolor amet
@@ -23,7 +23,7 @@ export default (props) => {
                   bacon cupim cow.</h3>
           </div>
           <div className="hero-button">
-            <Link to='event-list'><button className="ui olive button"><span className="events-list-text">Events Near Me</span></button></Link>
+            <Link to='event-list'><button className="ui inverted black button"><span className="events-list-text">Events Near Me</span></button></Link>
           </div>
         </div>
   </div>

@@ -20,7 +20,7 @@ export default (props) => {
           </div>
             {signedIn ?
             <button className="ui item" onClick={props.logoutUser}>Logout</button> :
-            <a href="/login.html" className="ui item">Sign In / Sign up</a>}
+            <a href="/login.html" className="ui item">Sign In | Sign up</a>}
           </div>
         </div>
    </div>
