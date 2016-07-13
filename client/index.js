@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </Router>
     </Provider>,
     document.getElementById('app')
-)
-store.dispatch(listenToAuth())
-
+  )
+  store.dispatch(listenToAuth())
 })
