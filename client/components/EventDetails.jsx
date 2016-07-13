@@ -27,25 +27,37 @@ export default React.createClass({
     let activityCreatorId = activity.activityCreatorId
     let showDelete = currentUserId === activityCreatorId
 
+    let bgActivityImage = activity.images
+    let bgBannerStyle = {
+      backgroundImage: 'url(' + bgActivityImage + ')',
+      backgroundColor: 'transparent',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }
+
     if (activity) {
       return (
         <div>
           <Nav />
-          {/* PHOTO CARD */}
-          <div className="ui container">
-            <div className="ui divided grid">
-              <div className="four wide column">
-                  <img className="ui huge image" src={activity.images}/>
-              </div>
 
+          <div className="banner-event-details" style={bgBannerStyle}>
+            <div className="banner-title">{activity.title}</div>
+            <h2 className="subtitle-header">{activity.subtitle}</h2>
+          </div>
+          <div className="ui hidden divider"></div>
+
+          <div className="ui container">
+            <div className="ui stackable four column grid">
               {/* TITLE HEADER BOX */}
-              <div id="desc-column" className="twelve wide column">
-                <h1 className="event-details-title ui center aligned">{activity.title}</h1>
-                <h2 className="subtitle-header">{activity.subtitle}</h2>
-              </div>
+                <div id="descript" className="twelve wide column">
+                  <div className="desc-box twelve wide column">
+                    <p className="description-event">Description: <br/> {activity.description}</p>
+                  </div>
+                </div>
 
                 {/* EVENT DETAILS BOX */}
-                <div className="event-deets four wide column">
+                <div id="rsvp" className="event-deets four wide column">
                   <h1>Event Details</h1>
                   <div className="content">
                       <p>Location: {activity.formattedAddress}</p>
@@ -54,18 +66,15 @@ export default React.createClass({
                       <p>Time: {activity.activityEnd}</p>
                       <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
                       <div className="ui hidden divider">
-                        <button className="ui negative button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
+                        <button className="ui yellow button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
                         { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
                         </button>
-                        {showDelete ? <Link to='event-list'><button className="ui red basic button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
                       </div>
                     </div>
                 </div>
 
                 {/* EVENT Description BOX */}
-                <div className="desc-box twelve wide column">
-                  <h3>Description: <br/> {activity.description}</h3>
-                </div>
+
                 <div className="disqus-box sixteen wide column">
                   <div id="disqus">
                   <ReactDisqusThread
@@ -75,8 +84,14 @@ export default React.createClass({
                     url="https://test-9eee4.firebaseapp.com/" />
                   </div>
                 </div>
+
+                <div className="sixteen wide column">
+
+                {showDelete ? <Link to='event-list'><button className="ui red button delete-button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
+
+                </div>
             </div>
-        </div>
+          </div>
         </div>
       )
     } else {

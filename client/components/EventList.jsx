@@ -8,7 +8,7 @@ export default (props) => {
   return (
     <div>
     <Nav />
-    <div className="banner">
+    <div className="banner-event-list">
       <div className="banner-title">Events</div>
     </div>
       <div className="divider"></div>
