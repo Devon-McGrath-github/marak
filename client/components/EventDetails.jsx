@@ -55,11 +55,10 @@ export default React.createClass({
                       <p>Location: {activity.formattedAddress}</p>
                         <p>Date: {activity.activityStart}</p>
                         <p>Time: {activity.activityEnd}</p>
-                      <p>Tasks: {activity.tasks}</p>
                     <div className="meta">
-                      <span className="date">{activity.activityStart}</span>
                         <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
                     </div>
+                    <p>Tasks: {activity.tasks}</p>
                     <button className="ui negative button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
                       { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
                     </button>
