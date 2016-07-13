@@ -6,7 +6,6 @@ import { toggleRSVP } from '../actions/rsvpActions'
 import { deleteActivityRequest } from '../actions/deleteActivityAction'
 import hasRSVPed from '../utilities/hasRSVPed'
 
-
 const mapStateToProps = (state, ownProps) => {
   if (!state.activities.length) {
     return {
