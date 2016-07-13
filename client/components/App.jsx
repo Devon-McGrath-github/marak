@@ -20,22 +20,17 @@ export default React.createClass({
         return (
             <div>
               <div>
-<<<<<<< HEAD
 
                   {/*<Link to='auth'><button>Sign In</button></Link>
                   <a href="/login.html">Sign In</a>
                   <Link to='sign-up'><button>Sign Up</button></Link>*/}
 
                   <h5>This is the nav bar</h5>
-=======
->>>>>>> 5890044f019659cfa8e71183c1bf7283e5a5365c
-                  {/*<Link to='auth'><button>Sign In</button></Link>*/}
-                  <a href="/login.html">Sign In</a>
-                  <Link to='sign-up'><button>Sign Up</button></Link>
-<<<<<<< HEAD
 
-=======
->>>>>>> 5890044f019659cfa8e71183c1bf7283e5a5365c
+                  {/*<Link to='auth'><button>Sign In</button></Link>*/}
+                  <a href="/login.html"><button>Sign In</button></a>
+                  <Link to='sign-up'><button>Sign Up</button></Link>
+
               </div>
               <div>
                   {this.props.children}
