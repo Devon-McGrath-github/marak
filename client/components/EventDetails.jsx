@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import R from 'ramda'
-import Nav from './Nav'
+import Nav from '../containers/NavContainer'
 import ReactDisqusThread from 'react-disqus-thread'
 
 import hasRSVPed from '../utilities/hasRSVPed'
