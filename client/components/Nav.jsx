@@ -18,7 +18,7 @@ export default (props) => {
               <i className="search link icon search-bar"></i>
             </div>
           </div>
-            {signedIn ? <div>p</div> : ''}
+            {signedIn ? <button className="ui item">Welcome: {props.auth.username}</button> : ''}
             {signedIn ?
             <button className="ui item" onClick={props.logoutUser}>Logout</button> :
             <a href="/login.html" className="ui item">Sign In | Sign up</a>}
