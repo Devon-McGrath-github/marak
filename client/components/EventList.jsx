@@ -1,28 +1,39 @@
 import React from 'react'
 import R from 'ramda'
 import { Link } from 'react-router'
+import Nav from '../containers/NavContainer'
 
 export default (props) => {
   const activities = R.values(props.activities)
-
   return (
     <div>
-    <Link to='/'><h1>Home</h1></Link>
-    <h1>Events List</h1>
-      {activities.map(function (activity) {
-          return (
-            <div key={activity.activityId}>
-              <img src={activity.images}/>
-            <p>Title: {activity.title}</p>
-            <p>subtitle: {activity.subtitle}</p>
-            <p>Date: {activity.activityStart}</p>
-            <p>Time: {activity.activityEnd}</p>
-            <Link to={`/event-details/${activity.activityId}`}><button>View Details</button></Link>
-
-            </div>
-          )
-          })
-        }
-  </div>
-)
-}
+    <Nav />
+    <div className="banner">
+      <div className="banner-title">Events</div>
+    </div>
+      <div className="divider"></div>
+      <div className="ui container">
+          {activities.map(function (activity) {
+            return (<Link to={`/event-details/${activity.activityId}`}>
+              <a><div className="ui gaps items" key={activity.id}>
+              <div key={activity.id} className="item">
+                <div className="image">
+                  <img src={activity.images}/>
+                </div>
+                <div className="content">
+                  <div className="header"><p>{activity.title}</p></div>
+                  <div className="meta">
+                    <span className="price"><p>{activity.activityStart}</p></span>
+                    <span
+                    className="price"><p>{activity.activityEnd}</p></span>
+                    <span className="stay"><p>{activity.subtitle}</p></span>
+                  <div className="description"><p>{activity.description}</p></div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </a></Link>
+            )})}
+      </div>
+    </div>
+  )}
