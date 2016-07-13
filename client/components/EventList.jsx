@@ -14,7 +14,8 @@ export default (props) => {
       <div className="divider"></div>
       <div className="ui container">
           {activities.map(function (activity) {
-            return (<Link to={`/event-details/${activity.activityId}`}><a><div className="ui gaps items" key={activity.id}>
+            return (<Link to={`/event-details/${activity.activityId}`}>
+              <a><div className="ui gaps items" key={activity.id}>
               <div key={activity.id} className="item">
                 <div className="image">
                   <img src={activity.images}/>
@@ -28,7 +29,8 @@ export default (props) => {
                   </div>
                 </div>
               </div>
-              </div></a></Link>
+              </div>
+              </a></Link>
             )})}
       </div>
     </div>

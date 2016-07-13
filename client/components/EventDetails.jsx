@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import R from 'ramda'
 import Nav from './Nav'
+import ReactDisqusThread from 'react-disqus-thread'
 
 import hasRSVPed from '../utilities/hasRSVPed'
 
@@ -11,6 +12,12 @@ export default React.createClass({
   },
 
   render () {
+    if (!this.props.activity) {
+      return (
+        <div>Loading...</div>
+      )
+    }
+
     let activity = this.props.activity
     let auth = this.props.auth
 
@@ -55,6 +62,11 @@ export default React.createClass({
                       { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
                     </button>
                       {showDelete ? <Link to='event-list'><button className="ui positive basic button" onClick={() => { this.props.deleteActivity(currentUserId, activityCreatorId, activityId)} }>Delete Event</button></Link> : null}
+                      <ReactDisqusThread
+                        shortname='unityhivekarma'
+                        identifier={activity.activityId}
+                        title={activity.title}
+                        url="https://test-9eee4.firebaseapp.com/" />
                   </div>
                 </div>
 
@@ -72,6 +84,5 @@ export default React.createClass({
         </div>
       )
     }
-
   }
 })

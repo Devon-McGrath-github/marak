@@ -42,3 +42,4 @@ jspm_packages
 
 server/static/bundle.*
 server/lib
+.DS_Store
