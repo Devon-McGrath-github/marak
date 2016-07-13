@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
-import Nav from './Nav'
+import Nav from '../containers/NavContainer'
 import { uploadImages } from '../storageInit'
 
 class CreateActivity extends Component {

@@ -8,7 +8,7 @@ export default (props) => {
         <div className="ui olive menu hero-nav">
           <Link to='/'><a className="active item"><p>2 Hands</p></a></Link>
           <Link to='event-list'><a className="item" onClick={() => props.getActivities()}><p>Event List</p></a></Link>
-          <Link to='new-event'><a className="item"><p>Create Event</p></a></Link>
+          {props.signedIn ? <Link to='new-event'><a className="item"><p>Create Event</p></a></Link> : <a href="/login.html" className="item"><p>Create Event</p></a> }
         <div className="right menu">
           <div className="item">
             <div className="ui icon input">

@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 import { Link } from 'react-router'
-import Nav from './Nav'
+import Nav from '../containers/NavContainer'
 
 export default (props) => {
   const activities = R.values(props.activities)

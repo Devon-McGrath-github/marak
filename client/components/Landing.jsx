@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Auth from '../containers/AuthContainer'
-import Nav from './Nav'
+import Nav from '../containers/NavContainer'
 
 
 export default (props) => {
