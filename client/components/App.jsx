@@ -4,10 +4,9 @@ import { Link } from 'react-router'
 export default React.createClass({
   render () {
     return (
-      <div>
+      <div id="root-div">
          {this.props.children}
        </div>
        )
    }
  })
- 
