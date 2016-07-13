@@ -4,8 +4,11 @@ import Auth from '../containers/AuthContainer'
 import Nav from './Nav'
 
 
-export default (props) => (
+export default (props) => {
+  let signedIn = props.auth.uid
+  return (
   <div>
+
     <Nav />
     <div className="hero-image">
     <div className="hero-header">KARMA HIVE</div>
@@ -20,7 +23,8 @@ export default (props) => (
     </div>
   </div>
 )
-
+)
+}
 
 // DO NOT DELETE ****************************
 //<Auth />
