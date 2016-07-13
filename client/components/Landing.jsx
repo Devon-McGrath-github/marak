@@ -23,7 +23,6 @@ export default (props) => {
     </div>
   </div>
 )
-)
 }
 
 // DO NOT DELETE ****************************
