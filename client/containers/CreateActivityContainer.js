@@ -11,7 +11,7 @@ import { uploadImageRequest } from '../actions/uploadImagesActions'
 const mapStateToProps = (state) => {
   return {
 
-     initialValues: {uid: state.auth.uid, attendeeIds: [0], images: "https://firebasestorage.googleapis.com/v0/b/test-9eee4.appspot.com/o/images%2Fstock_photo.jpg?alt=media&token=5c33c8dc-c2bc-4c60-8457-4ec3d2c210d2"},
+     initialValues: {uid: state.auth.uid, attendeeIds: [0], images: "https://firebasestorage.googleapis.com/v0/b/marak-d99b3.appspot.com/o/images%2Fstock_activity_image.jpg?alt=media&token=aae693db-5d25-44fe-bcf4-40e208451af0"},
      imageUpload: state.imageUpload
   }
 }
