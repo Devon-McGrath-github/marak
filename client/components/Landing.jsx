@@ -23,19 +23,3 @@ export default (props) => {
   </div>
 )
 }
-
-{/*DO NOT DELETE ****************************
-<Auth />
- <div id='reducer-test-div'></div>
- <div id="firebaseui-auth-container"></div>
- <Link to='/'><h1>Home</h1></Link>
-<Link to='event-list'><button onClick={() => props.getActivities()}>Event List</button></Link>
- <Link to='new-event'><button>New Event </button></Link>
-
-<div id='reducer-test-div'>
-
-     <Link to='/'><h1>Home</h1></Link>
-     <Link to='event-list'><button onClick={() => props.getActivities()}>Event List</button></Link>
-     {signedIn ? <Link to='new-event'><button>New Event </button></Link> : <a href="/login.html"><button>New Event</button> </a>}
-
-     <div id='reducer-test-div'>*/}
