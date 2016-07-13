@@ -1,0 +1,58 @@
+@media ( max-width: 765px ) {
+  .events-list-text {
+    font-size: 1rem;
+  }
+  .hero-button {
+    width: 80%;
+  }
+  .ui.inverted.black.button {
+    width: 100%;
+  }
+}
+
+@media ( max-width: 520px ) {
+  .hero-container {
+    width: 100%;
+    margin-top: 0;
+  }
+  .hero-header {
+    margin-top: 0;
+  }
+  .hero-h1 {
+    font-size: 9rem;
+  }
+  .hero-button {
+    width: 100%;
+  }
+
+}
+
+@media ( max-width: 400px ) {
+  .hero-container {
+    top: 10%;
+    left: 0;
+    width: 100%;
+    padding-bottom: 2%;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .hero-header {
+
+  }
+  .hero-h1 {
+    color: red;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+}
