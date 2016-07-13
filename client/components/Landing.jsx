@@ -14,8 +14,8 @@ export default (props) => {
             <h1 className="hero-h1">MARAK</h1>
           </div>
           <div className="hero-description">
-              <h3 className="hero-h3">A volunteer network for creating community. Help build your community with projects and
-events. The gift of a little time and effort. Maybe you'll find karma along the way!</h3>
+              <h3 className="hero-h3"><span className="hero-desc-text">A volunteer network for creating community. Help build your community with projects and
+events. The gift of a little time and effort. Maybe you'll find karma along the way!</span></h3>
           </div>
           <div className="hero-button">
             <Link to='event-list'><button className="ui inverted black button"><span className="events-list-text">Events Near Me</span></button></Link>

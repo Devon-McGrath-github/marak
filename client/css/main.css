@@ -4,7 +4,7 @@ html {
   font-size: 16px;
 }
 
-html, #app, #root-div, .hero-image{
+html, body, #app, #root-div, .hero-image{
   height: 100%;
 }
 
