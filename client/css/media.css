@@ -37,11 +37,6 @@
     height: 30%;
     width: 100%;
   }
-  .ui.inverted.black.button {
-    font-size: 6rem;
-    height: 100%;
-    width: 100%
-  }
 }
 
 @media ( max-width: 400px ) {
@@ -54,11 +49,8 @@
     margin-left: 0;
     margin-right: 0;
   }
-  .hero-header {
-
-  }
   .hero-h1 {
-    color: red;
+    font-size: 9rem;
   }
 
 
