@@ -5,6 +5,7 @@ import { getActivities } from '../actions/getAllActivitiesAction'
 
 const mapStateToProps = (state) => {
   return {
+    auth: state.auth
   }
 }
 
