@@ -1,0 +1,11 @@
+@media ( max-width: 650px ) {
+  .banner-title {
+    font-size: 3em;
+  }
+  .subtitle-header {
+    font-size: 1.5em;
+  }
+  .description-event {
+    font-size: 1.15rem;
+  }
+}

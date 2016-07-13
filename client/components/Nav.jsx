@@ -8,7 +8,7 @@ export default (props) => {
   return (
     <div>
         <div className="ui olive menu hero-nav">
-          <Link to='/' className="active item"><p>2 Hands</p></Link>
+          <Link to='/' className="active item"><p>Marak</p></Link>
           <Link to="event-list" className="item" onClick={() => props.getActivities()}><p>Event List</p></Link>
           {signedIn ? <Link to="new-event" className="item"><p>Create Event</p></Link> : <a href="/login.html" className="item"><p>Create Event</p></a> }
         <div className="right menu">
@@ -18,11 +18,16 @@ export default (props) => {
               <i className="search link icon"></i>
             </div>
           </div>
-            {signedIn ?
-            <button className="ui item" onClick={props.logoutUser}>Logout</button> :
-            <a href="/login.html" className="ui item">Sign In / Sign up</a>}
-          </div>
+        <div>
+          {signedIn ?
+            <div className="ui olive menu hero-nav">
+              <p className="ui item">{ props.auth.username } </p>
+              <button className="ui item" onClick={props.logoutUser}>Logout</button>
+            </div> :
+          <a href="/login.html" className="ui item">Sign In / Sign up</a>}
         </div>
-   </div>
+      </div>
+    </div>
+  </div>
   )
 }

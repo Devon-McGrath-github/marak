@@ -31,7 +31,6 @@ export const writeNewActivityToDB = (payload) => {
   }
   const updates = {};
   updates['activities/' + newActivityKey] = newActivity;
-  debugger
   return firebase.database().ref().update(updates)
 }
 
