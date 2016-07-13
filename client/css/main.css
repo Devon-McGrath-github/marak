@@ -154,9 +154,9 @@ p {
 
 /*  DISQUS */
 
-#rsvp {
+/*#rsvp {
   border: 1px solid gray;
-}
+}*/
 
 .disqus-box {
   padding: 0px;
@@ -167,9 +167,14 @@ p {
   height: 40rem;
   max-height: 50rem;
   padding: 10px;
-  border: 1px solid gray;
+  font-size: 1.25em;
 }
 
 #descript {
-  border: 1px solid gray;
+  font-size: 1.25em;
+  padding-right: 30px;
+}
+
+.event-deets {
+  font-size: 1.15rem;
 }

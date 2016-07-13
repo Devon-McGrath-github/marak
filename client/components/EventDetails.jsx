@@ -45,33 +45,37 @@ export default React.createClass({
             <div className="banner-title">{activity.title}</div>
             <h2 className="subtitle-header">{activity.subtitle}</h2>
           </div>
+
           <div className="ui hidden divider"></div>
 
           <div className="ui container">
             <div className="ui stackable four column grid">
               {/* TITLE HEADER BOX */}
-                <div id="descript" className="twelve wide column">
-                  <div className="desc-box twelve wide column">
-                    <p className="description-event">Description: <br/> {activity.description}</p>
+              <div id="rsvp" className="event-deets four wide column">
+                <h1>Event Details</h1>
+                <div className="content">
+                    <p><b>Location: </b>{activity.formattedAddress}</p>
+                    <p><b>Tasks: </b>{activity.tasks}</p>
+                    <p><b>Start Date: </b>{activity.activityStart && activity.activityEnd}</p>
+                    <p><b>Time: </b>{activity.activityEnd}</p>
+                    <p><b>Number people attending: </b>
+                    <br/>{this.props.length - 1 } / {activity.numberRequired} </p>
+                    <div className="ui hidden divider">
+                      <button className="ui yellow button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
+                      { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
+                      </button>
+                    </div>
                   </div>
+              </div>
+
+              <div id="descript" className="twelve wide column">
+                <div className="desc-box twelve wide column">
+                  <h1 className="content description-event">Description </h1><p> {activity.description}</p>
                 </div>
+              </div>
 
                 {/* EVENT DETAILS BOX */}
-                <div id="rsvp" className="event-deets four wide column">
-                  <h1>Event Details</h1>
-                  <div className="content">
-                      <p>Location: {activity.formattedAddress}</p>
-                      <p>Tasks: {activity.tasks}</p>
-                      <p>Start Date: {activity.activityStart && activity.activityEnd}</p>
-                      <p>Time: {activity.activityEnd}</p>
-                      <p>Number people attending: {this.props.length - 1 } / {activity.numberRequired} </p>
-                      <div className="ui hidden divider">
-                        <button className="ui yellow button" onClick={() => { this.props.toggleRSVP(currentUserId, activityId, attendeeIds)} }>
-                        { this.props.hasRSVPed(attendeeIds, currentUserId) ? 'Cancel RSVP' : 'RSVP' }
-                        </button>
-                      </div>
-                    </div>
-                </div>
+
 
                 {/* EVENT Description BOX */}
 
