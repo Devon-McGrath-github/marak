@@ -173,8 +173,20 @@ p {
 #descript {
   font-size: 1.25em;
   padding-right: 30px;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .event-deets {
   font-size: 1.15rem;
+  padding-left: 100px;
+}
+
+.boom {
+  background-color: #f1efef;
+  padding: 30px;
+}
+
+.meta {
+  font-size: 1.25em;
 }

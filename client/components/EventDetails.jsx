@@ -48,7 +48,7 @@ export default React.createClass({
 
           <div className="ui hidden divider"></div>
 
-          <div className="ui container">
+          <div className="ui container boom">
             <div className="ui stackable four column grid">
               {/* TITLE HEADER BOX */}
               <div id="rsvp" className="event-deets four wide column">
