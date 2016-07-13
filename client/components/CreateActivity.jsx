@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link, hashHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
+import Nav from '../containers/NavContainer'
 import { uploadImages } from '../storageInit'
 
 class CreateActivity extends Component {
@@ -24,18 +25,18 @@ class CreateActivity extends Component {
     }
 
   render() {
-
     const { fields: {title, subtitle, description, activityStart, activityEnd, formattedAddress, numberRequired, tasks, uid, attendeeIds, images}, handleSubmit} = this.props
     let imageUrl = null
-
     let inProgress = this.props.imageUpload
     let uploadProgress = null
 
-
-    return (
-      <div>
-        <Link to='/'><h1>Home</h1></Link>
-        <form onSubmit={() => {
+return (
+  <div>
+      <Nav />
+      <div className="banner banner-create">
+        <div className="banner-title">Create Your Event</div>
+      </div>
+        <form className="ui form container" onSubmit={() => {
             handleSubmit()
             hashHistory.push('event-list')}}>
           <div>
@@ -78,13 +79,10 @@ class CreateActivity extends Component {
                       }
                   } multiple />
               {this.getPhotoStatus(inProgress)}
-
-        </div>
-
-          <button type="submit">Submit</button>
+          </div>
+          <button className="ui inverted red button" type="submit">Submit</button>
         </form>
-
-  </div>
+    </div>
     )
   }
 }
