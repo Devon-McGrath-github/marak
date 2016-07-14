@@ -56,7 +56,7 @@ export default React.createClass({
                 <div className="content">
                     <p><b>Location: </b>{activity.formattedAddress}</p>
                     <p><b>Tasks: </b>{activity.tasks}</p>
-                    <p><b>Date: </b>{activity.activityStart && activity.activityEnd}</p>
+                    <p><b>Date: </b>{activity.activityStart}</p>
                     <p><b>Time: </b>{activity.activityEnd}</p>
                     <p><b>Number people attending: </b>
                     <br/>{this.props.length - 1 } / {activity.numberRequired} </p>
